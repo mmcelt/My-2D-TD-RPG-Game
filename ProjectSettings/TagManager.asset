@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2220986901
+    locked: 0
+  - name: Items
+    uniqueID: 3748110089
+    locked: 0
+  - name: Player
+    uniqueID: 1993444399
+    locked: 0
+  - name: Battle BG
+    uniqueID: 1021195465
+    locked: 0
+  - name: Battle Chars
+    uniqueID: 2662165775
+    locked: 0
