@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _continueGameScene: LoadingScene
-  _newGameScene: Countryside
+  _newGameScene: World
   _continueButton: {fileID: 614774658}
 --- !u!1 &1894781181
 GameObject:

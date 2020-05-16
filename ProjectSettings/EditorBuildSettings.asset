@@ -18,8 +18,14 @@ EditorBuildSettings:
     path: Assets/_Scenes/Town.unity
     guid: ce95876ef92ded94e8c7846f15658208
   - enabled: 1
-    path: Assets/_Scenes/Shop.unity
+    path: Assets/_Scenes/Shop-S.unity
     guid: f15bb13ed2438344d892cd1167a0cabe
+  - enabled: 1
+    path: Assets/_Scenes/Shop-M.unity
+    guid: 2c95652b9db46cf47af7b8882c9d6c6c
+  - enabled: 1
+    path: Assets/_Scenes/Shop-L.unity
+    guid: 2291475a6b71ecb48bc422cf273741bb
   - enabled: 1
     path: Assets/_Scenes/Cave.unity
     guid: c2456614230f2ce49811865453a06349
@@ -32,4 +38,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Test2.unity
     guid: f085f5a300ea81746b188457495e7058
+  - enabled: 1
+    path: Assets/_Scenes/World.unity
+    guid: 221fe5c0430fc754882aedbfd851e56c
+  - enabled: 1
+    path: Assets/_Scenes/Small Village.unity
+    guid: 1a9822960fd5d3b4e87ef08672ca0e48
+  - enabled: 1
+    path: Assets/_Scenes/Dungeon1.unity
+    guid: 6f6675cb0a90d3a4bb84a88392b74a60
   m_configObjects: {}
