@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance;
 
 	public CharSats[] _playerStats;
-	public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive;
+	public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive, _inDungeon;
 	public string[] _itemsHeld;
 	public int[] _numberHeldOfItem;
 	public Item[] _referenceItems;
@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
 	
 	void Update() 
 	{
+		if (_inDungeon)
+		{
+			PlayerController.Instance.gameObject.SetActive(false);
+			return;
+		}
+
 		if(_gameMenuOpen || _dialogActive || _fadingBetweenAreas || _shopOpen || _battleActive)
 		{
 			PlayerController.Instance._canMove = false;
@@ -48,19 +54,19 @@ public class GameManager : MonoBehaviour
 			PlayerController.Instance._canMove = true;
 		}
 
-		if (Input.GetKeyDown(KeyCode.J))
-		{
-			AddItem("Iron Armor");
-			AddItem("Pooper Scooper");
+		//if (Input.GetKeyDown(KeyCode.J))
+		//{
+		//	AddItem("Iron Armor");
+		//	AddItem("Pooper Scooper");
 
-			RemoveItem("Health Potion");
-			RemoveItem("Crapola");
-		}
+		//	RemoveItem("Health Potion");
+		//	RemoveItem("Crapola");
+		//}
 
-		if (Input.GetKeyDown(KeyCode.O))
-			SaveData();
-		if (Input.GetKeyDown(KeyCode.P))
-			LoadData();
+		//if (Input.GetKeyDown(KeyCode.O))
+		//	SaveData();
+		//if (Input.GetKeyDown(KeyCode.P))
+		//	LoadData();
 	}
 	#endregion
 

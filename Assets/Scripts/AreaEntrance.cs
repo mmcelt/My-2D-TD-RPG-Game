@@ -23,11 +23,6 @@ public class AreaEntrance : MonoBehaviour
 		GameManager.Instance._fadingBetweenAreas = false;
 
 	}
-
-	void Update() 
-	{
-		
-	}
 	#endregion
 
 	#region Public Methods

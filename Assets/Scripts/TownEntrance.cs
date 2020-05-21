@@ -26,11 +26,6 @@ public class TownEntrance : MonoBehaviour
 		_theEntrance._transitionName = _areaTransitionName;
 	}
 
-	void Start()
-	{
-
-	}
-
 	void Update()
 	{
 		if (_shouldLoadAfterFade && _enteredArea)

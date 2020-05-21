@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AreaExit : MonoBehaviour
+public class DungeonExit : MonoBehaviour
 {
 	#region Fields
 
 	[SerializeField] string _areaToLoad;
 	public string _areaTransitionName;
-	[SerializeField] AreaEntrance _theEntrance;
+	[SerializeField] DungeonEntrance _theEntrance;
 	[SerializeField] float _waitToLoad = 1f;
-	[SerializeField] bool _exiting2D;
+	[SerializeField] bool _exiting3D;
 
 	bool _shouldLoadAfterFade;
 
@@ -19,7 +19,7 @@ public class AreaExit : MonoBehaviour
 
 	#region MonoBehaviour Methods
 
-	void Awake()
+	void Awake() 
 	{
 		_theEntrance._transitionName = _areaTransitionName;
 	}
@@ -36,15 +36,18 @@ public class AreaExit : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
 			PlayerController.Instance._areaTransitionName = _areaTransitionName;
 			GameManager.Instance._fadingBetweenAreas = true;
 
-			if (_exiting2D)
-				PlayerController.Instance.gameObject.SetActive(false);
+			if (_exiting3D)
+			{
+				GameManager.Instance._inDungeon = false;
+				PlayerController.Instance.gameObject.SetActive(true);
+			}
 
 			_shouldLoadAfterFade = true;
 			UIFade.Instance.FadeToBlack();
