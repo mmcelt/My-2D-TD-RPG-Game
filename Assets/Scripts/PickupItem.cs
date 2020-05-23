@@ -13,11 +13,6 @@ public class PickupItem : MonoBehaviour
 
 	#region MonoBehaviour Methods
 
-	void Start() 
-	{
-		
-	}
-	
 	void Update() 
 	{
 		if(_canPickup && Input.GetButtonDown("Fire1") && PlayerController.Instance._canMove)

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door: MonoBehaviour
+public class Box : MonoBehaviour
 {
 	#region Fields
 
-	public bool _doorIsOpen;
 	[SerializeField] bool _isLocked;
 	[SerializeField] string _requiredKey;
 	[SerializeField] float _infoPanelShowTime = 1f;
 
-	Animator _theAnim;
+	bool open;
+	Animation _theAnim;
 
 	#endregion
 
@@ -19,39 +19,43 @@ public class Door: MonoBehaviour
 
 	void Start() 
 	{
-		_theAnim = GetComponent<Animator>();
+		_theAnim = GetComponent<Animation>();
 	}
 	#endregion
 
 	#region Public Methods
 
-	public void OperateDoor()
+	public void OperateBox()
 	{
 		if (!_isLocked)
 		{
-			if (!_doorIsOpen)
+			if (!open)
 			{
-				_doorIsOpen = true;
-				_theAnim.SetTrigger("openDoor");
+				Debug.Log("IN OPERATE BOX");
+				_theAnim["ChestAnim"].speed = 1.0f;
+				_theAnim.Play();
+				open = true;
 			}
 			else
 			{
-				_doorIsOpen = false;
-				_theAnim.SetTrigger("closeDoor");
+				_theAnim["ChestAnim"].time = _theAnim["ChestAnim"].length;
+				_theAnim["ChestAnim"].speed = -1.0f;
+				_theAnim.Play();
+				open = false;
 			}
 		}
 		else
 		{
-			if(_requiredKey != "")
+			if (_requiredKey != "")
 			{
 				bool haveKey = false;
-				foreach(string item in GameManager.Instance._itemsHeld)
+				foreach (string item in GameManager.Instance._itemsHeld)
 				{
-					if(item == _requiredKey)
+					if (item == _requiredKey)
 					{
 						haveKey = true;
-						_doorIsOpen = true;
-						_theAnim.SetTrigger("openDoor");
+						_theAnim["ChestAnim"].speed = 1.0f;
+						open = true;
 					}
 				}
 				if (!haveKey)
@@ -62,6 +66,7 @@ public class Door: MonoBehaviour
 			}
 		}
 	}
+
 	#endregion
 
 	#region Private Methods

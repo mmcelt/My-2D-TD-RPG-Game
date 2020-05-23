@@ -46,6 +46,7 @@ public class DungeonExit : MonoBehaviour
 			if (_exiting3D)
 			{
 				GameManager.Instance._inDungeon = false;
+				Cursor.lockState = CursorLockMode.None;
 				PlayerController.Instance.gameObject.SetActive(true);
 			}
 

@@ -31,6 +31,9 @@ public class GameMenu : MonoBehaviour
 	[SerializeField] GameObject _selectCharacterPamel;
 	[SerializeField] Text[] _selectCharacterButtonTexts;
 	[SerializeField] Text _goldAmountText;
+	[Header("Info Panel")]
+	public GameObject _infoPanel;
+	public Text _infoText;
 
 	CharSats[] _playerStats;
 
