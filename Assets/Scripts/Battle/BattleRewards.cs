@@ -13,7 +13,6 @@ public class BattleRewards : MonoBehaviour
 	[SerializeField] GameObject _rewardScreen;
 	[SerializeField] string[] _rewardItems;
 	[SerializeField] int _xpEarned;
-	//TODO: ADD GOLD...
 	[SerializeField] int _goldFound;
 	public bool _markQuestComplete;
 	public string _questToMark;
@@ -31,11 +30,6 @@ public class BattleRewards : MonoBehaviour
 			Destroy(gameObject);
 	}
 
-	void Start() 
-	{
-		
-	}
-	
 	void Update() 
 	{
 		if (Input.GetKeyDown(KeyCode.Y))
@@ -54,6 +48,7 @@ public class BattleRewards : MonoBehaviour
 		_rewardItems = rewards;
 
 		_xpText.text = "Surviving Players Earned " + _xpEarned + " XP!";
+		_goldText.text = "Gold Found: " + _goldFound + "g";
 		_itemsText.text = "";
 
 		foreach(string item in _rewardItems)

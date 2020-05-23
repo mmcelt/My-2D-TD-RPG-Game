@@ -9,9 +9,10 @@ public class Box : MonoBehaviour
 	[SerializeField] bool _isLocked;
 	[SerializeField] string _requiredKey;
 	[SerializeField] float _infoPanelShowTime = 1f;
-
+	
 	bool open;
 	Animation _theAnim;
+	BootyGiver _bootyGiver;
 
 	#endregion
 
@@ -20,6 +21,7 @@ public class Box : MonoBehaviour
 	void Start() 
 	{
 		_theAnim = GetComponent<Animation>();
+		_bootyGiver = GetComponent<BootyGiver>();
 	}
 	#endregion
 
@@ -35,6 +37,7 @@ public class Box : MonoBehaviour
 				_theAnim["ChestAnim"].speed = 1.0f;
 				_theAnim.Play();
 				open = true;
+				_bootyGiver.GiveBooty();
 			}
 			else
 			{
@@ -56,6 +59,7 @@ public class Box : MonoBehaviour
 						haveKey = true;
 						_theAnim["ChestAnim"].speed = 1.0f;
 						open = true;
+						_bootyGiver.GiveBooty();
 					}
 				}
 				if (!haveKey)

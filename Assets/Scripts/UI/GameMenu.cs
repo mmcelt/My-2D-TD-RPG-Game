@@ -31,9 +31,6 @@ public class GameMenu : MonoBehaviour
 	[SerializeField] GameObject _selectCharacterPamel;
 	[SerializeField] Text[] _selectCharacterButtonTexts;
 	[SerializeField] Text _goldAmountText;
-	[Header("Bootie Panel")]
-	public GameObject _bootiePanel;
-	public Text _itemsText, _goldText;
 	[Header("Info Panel")]
 	public GameObject _infoPanel;
 	public Text _infoText;
@@ -257,7 +254,9 @@ public class GameMenu : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainMenu");
 		Destroy(GameManager.Instance.gameObject);
-		Destroy(FindObjectOfType<CameraController>().gameObject);
+		if(!GameManager.Instance._inDungeon)
+			Destroy(FindObjectOfType<CameraController>().gameObject);
+
 		Destroy(PlayerController.Instance.gameObject);
 		Destroy(AudioManager.Instance.gameObject);
 		Destroy(gameObject);
