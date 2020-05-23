@@ -48,9 +48,8 @@ public class BattleManager : MonoBehaviour
 	//Slider[] _enemyHealthbars;
 
 	[Header("Rewards")]
-	public int _rewardXP;
+	public int _rewardXP, _rewardGold;
 	public string[] _rewardItems;
-	//TODO: ADD GOLD
 
 	Item _activeItem;
 
@@ -593,7 +592,7 @@ public class BattleManager : MonoBehaviour
 		}
 		else
 		{
-			BattleRewards.Instance.OpenRewardScreen(_rewardXP, _rewardItems);
+			BattleRewards.Instance.OpenRewardScreen(_rewardXP, _rewardGold, _rewardItems);
 		}
 
 		AudioManager.Instance.PlayMusic(Camera.main.GetComponent<CameraController>()._musicToPlay);

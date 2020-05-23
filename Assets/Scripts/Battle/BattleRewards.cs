@@ -9,14 +9,15 @@ public class BattleRewards : MonoBehaviour
 
 	public static BattleRewards Instance;
 
-	[SerializeField] Text _xpText, _itemsText;
+	[SerializeField] Text _xpText, _goldText, _itemsText;
 	[SerializeField] GameObject _rewardScreen;
 	[SerializeField] string[] _rewardItems;
 	[SerializeField] int _xpEarned;
+	//TODO: ADD GOLD...
+	[SerializeField] int _goldFound;
 	public bool _markQuestComplete;
 	public string _questToMark;
 
-	//TODO: ADD GOLD...
 
 	#endregion
 
@@ -39,16 +40,17 @@ public class BattleRewards : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Y))
 		{
-			OpenRewardScreen(54, new string[] { "Iron Sword", "Iron Armor" });
+			OpenRewardScreen(54, 100, new string[] { "Iron Sword", "Iron Armor" });
 		}
 	}
 	#endregion
 
 	#region Public Methods
 
-	public void OpenRewardScreen(int xp, string[] rewards)
+	public void OpenRewardScreen(int xp, int gold, string[] rewards)
 	{
 		_xpEarned = xp;
+		_goldFound = gold;
 		_rewardItems = rewards;
 
 		_xpText.text = "Surviving Players Earned " + _xpEarned + " XP!";
