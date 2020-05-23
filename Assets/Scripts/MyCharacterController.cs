@@ -12,6 +12,8 @@ public class MyCharacterController : MonoBehaviour
 
 	bool _cursorLocked;
 
+	public bool _canMove = true;
+
 	#endregion
 
 	#region MonoBehaviour Methods
@@ -26,35 +28,38 @@ public class MyCharacterController : MonoBehaviour
 		//DontDestroyOnLoad(gameObject);
 	}
 
-	void Start() 
+	void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		_cursorLocked = true;
 	}
-	
-	void Update() 
-	{
-		float translation = Input.GetAxis("Vertical") * _speed;
-		float straffe = Input.GetAxis("Horizontal") * _speed;
-		translation *= Time.deltaTime;
-		straffe *= Time.deltaTime;
 
-		transform.Translate(straffe, 0, translation);
+	void Update()
+	{
+		if (_canMove)
+		{
+			float translation = Input.GetAxis("Vertical") * _speed;
+			float straffe = Input.GetAxis("Horizontal") * _speed;
+			translation *= Time.deltaTime;
+			straffe *= Time.deltaTime;
+
+			transform.Translate(straffe, 0, translation);
+		}
 
 		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			if (_cursorLocked)
 			{
-				Cursor.lockState = CursorLockMode.None;
-				_cursorLocked = false;
-			}
+				if (_cursorLocked)
+				{
+					Cursor.lockState = CursorLockMode.None;
+					_cursorLocked = false;
+				}
 
-			else
-			{
-				Cursor.lockState = CursorLockMode.Locked;
-				_cursorLocked = true;
+				else
+				{
+					Cursor.lockState = CursorLockMode.Locked;
+					_cursorLocked = true;
+				}
 			}
-		}
 
 		//Mouse Operations
 		if (Input.GetMouseButtonDown(0) && !_cursorLocked)
@@ -70,16 +75,17 @@ public class MyCharacterController : MonoBehaviour
 				{
 					door.OperateDoor();
 				}
-
-				if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+				//Operating Boxes
+				Box box = hit.transform.GetComponent<Box>();
+				if (box)
 				{
-					//Operating Box
-					Box box = hit.transform.GetComponent<Box>();
-					if (box)
-					{
-						Debug.Log("OPEN THE BOX");
-						box.OperateBox();
-					}
+					box.OperateBox();
+				}
+				//Operating Chests
+				Chest chest = hit.transform.GetComponent<Chest>();
+				if (chest)
+				{
+					chest.OperateChest();
 				}
 			}
 		}

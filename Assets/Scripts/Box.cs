@@ -10,7 +10,7 @@ public class Box : MonoBehaviour
 	[SerializeField] string _requiredKey;
 	[SerializeField] float _infoPanelShowTime = 1f;
 	
-	bool open;
+	bool open, _boxAlreadyLooted;
 	Animation _theAnim;
 	BootyGiver _bootyGiver;
 
@@ -33,18 +33,11 @@ public class Box : MonoBehaviour
 		{
 			if (!open)
 			{
-				Debug.Log("IN OPERATE BOX");
-				_theAnim["ChestAnim"].speed = 1.0f;
-				_theAnim.Play();
-				open = true;
-				_bootyGiver.GiveBooty();
+				OpenBox();
 			}
 			else
 			{
-				_theAnim["ChestAnim"].time = _theAnim["ChestAnim"].length;
-				_theAnim["ChestAnim"].speed = -1.0f;
-				_theAnim.Play();
-				open = false;
+				CloseBox();
 			}
 		}
 		else
@@ -57,9 +50,7 @@ public class Box : MonoBehaviour
 					if (item == _requiredKey)
 					{
 						haveKey = true;
-						_theAnim["ChestAnim"].speed = 1.0f;
-						open = true;
-						_bootyGiver.GiveBooty();
+						OpenBox();
 					}
 				}
 				if (!haveKey)
@@ -70,10 +61,27 @@ public class Box : MonoBehaviour
 			}
 		}
 	}
-
 	#endregion
 
 	#region Private Methods
+
+	void OpenBox()
+	{
+		_theAnim["ChestAnim"].speed = 1.0f;
+		_theAnim.Play();
+		open = true;
+		if (!_boxAlreadyLooted)
+			_bootyGiver.GiveBooty();
+
+		_boxAlreadyLooted = true;
+	}
+	void CloseBox()
+	{
+		_theAnim["ChestAnim"].time = _theAnim["ChestAnim"].length;
+		_theAnim["ChestAnim"].speed = -1.0f;
+		_theAnim.Play();
+		open = false;
+	}
 
 	IEnumerator ShowInfoPanelRoutine()
 	{

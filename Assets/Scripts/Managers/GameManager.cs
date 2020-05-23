@@ -42,16 +42,23 @@ public class GameManager : MonoBehaviour
 		if (_inDungeon)
 		{
 			PlayerController.Instance.gameObject.SetActive(false);
-			return;
 		}
 
 		if(_gameMenuOpen || _dialogActive || _fadingBetweenAreas || _shopOpen || _battleActive)
 		{
-			PlayerController.Instance._canMove = false;
+			if (!_inDungeon)
+				PlayerController.Instance._canMove = false;
+			else
+			{
+				MyCharacterController.Instance._canMove = false;
+			}
 		}
 		else
 		{
-			PlayerController.Instance._canMove = true;
+			if (!_inDungeon)
+				PlayerController.Instance._canMove = true;
+			else
+				MyCharacterController.Instance._canMove = true;
 		}
 
 		//if (Input.GetKeyDown(KeyCode.J))

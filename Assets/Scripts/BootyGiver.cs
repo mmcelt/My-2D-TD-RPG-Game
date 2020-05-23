@@ -13,12 +13,15 @@ public class BootyGiver : MonoBehaviour
 
 	int _bootyGold;
 
+	Chest _chest;
+
 	#endregion
 
 	#region MonoBehaviour Methods
 
 	void Start() 
 	{
+		_chest = GetComponent<Chest>();
 		_bootyGold = (int)Random.Range(_baseGold * _goldRandomFactorMin, _baseGold * _goldRandomFactorMax);
 	}
 	#endregion

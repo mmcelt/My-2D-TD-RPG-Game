@@ -22,6 +22,8 @@ public class CamMouseLook : MonoBehaviour
 	
 	void Update() 
 	{
+		if (!MyCharacterController.Instance._canMove) return;
+
 		var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
 		mouseDelta = Vector2.Scale(mouseDelta, new Vector2(_sensitivity * _smoothing, _sensitivity * _smoothing));

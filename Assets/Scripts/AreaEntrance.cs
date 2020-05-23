@@ -21,7 +21,7 @@ public class AreaEntrance : MonoBehaviour
 
 		UIFade.Instance.FadeFromBlack();
 		GameManager.Instance._fadingBetweenAreas = false;
-
+		GameManager.Instance._inDungeon = false;
 	}
 	#endregion
 
