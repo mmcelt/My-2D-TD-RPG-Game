@@ -32,6 +32,10 @@ public class MyCharacterController : MonoBehaviour
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		_cursorLocked = true;
+		if (GameManager.Instance._inDungeon && GameManager.Instance._isContinuedGame)
+		{
+			transform.position = new Vector3(PlayerPrefs.GetFloat("DungeonPlayer_Position_x"), PlayerPrefs.GetFloat("DungeonPlayer_Position_y"), PlayerPrefs.GetFloat("DungeonPlayer_Position_z"));
+		}
 	}
 
 	void Update()

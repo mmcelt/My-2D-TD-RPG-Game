@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
 	public int _currentGold;
 
+	public bool _isContinuedGame;
+
 	#endregion
 
 	#region MonoBehaviour Methods
@@ -58,7 +60,10 @@ public class GameManager : MonoBehaviour
 			if (!_inDungeon)
 				PlayerController.Instance._canMove = true;
 			else
-				MyCharacterController.Instance._canMove = true;
+			{
+				if(MyCharacterController.Instance)
+					MyCharacterController.Instance._canMove = true;
+			}
 		}
 
 		//if (Input.GetKeyDown(KeyCode.J))
@@ -200,8 +205,15 @@ public class GameManager : MonoBehaviour
 		PlayerPrefs.SetFloat("Player_Position_x", PlayerController.Instance.transform.position.x);
 		PlayerPrefs.SetFloat("Player_Position_y", PlayerController.Instance.transform.position.y);
 		PlayerPrefs.SetFloat("Player_Position_z", PlayerController.Instance.transform.position.z);
+		//in dungeon...
+		if (_inDungeon)
+		{
+			PlayerPrefs.SetFloat("DungeonPlayer_Position_x", MyCharacterController.Instance.transform.position.x);
+			PlayerPrefs.SetFloat("DungeonPlayer_Position_y", MyCharacterController.Instance.transform.position.y);
+			PlayerPrefs.SetFloat("DungeonPlayer_Position_z", MyCharacterController.Instance.transform.position.z);
+		}
 		//character infos...
-		for(int i=0; i<_playerStats.Length; i++)
+		for (int i=0; i<_playerStats.Length; i++)
 		{
 			if (_playerStats[i].gameObject.activeSelf)
 			{
@@ -231,14 +243,33 @@ public class GameManager : MonoBehaviour
 			PlayerPrefs.SetString("ItemInInventory_" + i, _itemsHeld[i]);
 			PlayerPrefs.SetInt("ItemAmount_" + i, _numberHeldOfItem[i]);
 		}
+		//misc data...
+		if (_inDungeon)
+			PlayerPrefs.SetInt("InDungeon", 1);
+		else
+			PlayerPrefs.SetInt("InDungeon", 0);
 	}
 
 	public void LoadData()
 	{
+		_isContinuedGame = true;
+
+		//Misc...
+		if (PlayerPrefs.GetInt("InDungeon") == 0)
+			_inDungeon = false;
+		else
+			_inDungeon = true;
+
 		//player position
 		PlayerController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("Player_Position_x"), PlayerPrefs.GetFloat("Player_Position_y"), PlayerPrefs.GetFloat("Player_Position_z"));
+
+		//if (_inDungeon)
+		//{
+		//	MyCharacterController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("DungeonPlayer_Position_x"), PlayerPrefs.GetFloat("DungeonPlayer_Position_y"), PlayerPrefs.GetFloat("DungeonPlayer_Position_z"));
+		//}
+
 		//character data
-		for(int i=0; i<_playerStats.Length; i++)
+		for (int i=0; i<_playerStats.Length; i++)
 		{
 			if(PlayerPrefs.GetInt("Player_" + _playerStats[i]._charName + "_active") == 0)
 			{
