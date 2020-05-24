@@ -72,4 +72,4 @@ crashlytics-build.properties
 # My Stuff
 *.zip
 *.zipx
-/[Aa]ssets/[Aa]sset Packs/*
+# /[Aa]ssets/[Aa]sset Packs/*
