@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleStarter : MonoBehaviour
+public class BattleStarter3D : MonoBehaviour
 {
 	#region Fields
 
@@ -27,7 +27,7 @@ public class BattleStarter : MonoBehaviour
 		_betweenBattleCounter = Random.Range(_timeBetweenBattles * 0.5f, _timeBetweenBattles * 1.5f);
 	}
 
-	void Update()
+	void Update() 
 	{
 		if (_inArea && PlayerController.Instance._canMove)
 		{
@@ -44,32 +44,17 @@ public class BattleStarter : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			if(_activateOnEnter)
+			if (_activateOnEnter)
 			{
 				StartCoroutine(StartBattleRoutine());
 			}
 			else
 			{
 				_inArea = true;
-			}
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if (other.CompareTag("Player"))
-		{
-			if (_activateOnExit)
-			{
-				StartCoroutine(StartBattleRoutine());
-			}
-			else
-			{
-				_inArea = false;
 			}
 		}
 	}

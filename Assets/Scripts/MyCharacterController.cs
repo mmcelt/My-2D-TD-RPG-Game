@@ -10,9 +10,10 @@ public class MyCharacterController : MonoBehaviour
 
 	[SerializeField] float _speed = 10.0f;
 
-	bool _cursorLocked;
+	public bool _cursorLocked;
 
 	public bool _canMove = true;
+	public int _musicToPlay;
 
 	#endregion
 
@@ -36,6 +37,7 @@ public class MyCharacterController : MonoBehaviour
 		{
 			transform.position = new Vector3(PlayerPrefs.GetFloat("DungeonPlayer_Position_x"), PlayerPrefs.GetFloat("DungeonPlayer_Position_y"), PlayerPrefs.GetFloat("DungeonPlayer_Position_z"));
 		}
+		AudioManager.Instance.PlayMusic(_musicToPlay);
 	}
 
 	void Update()
@@ -66,7 +68,7 @@ public class MyCharacterController : MonoBehaviour
 			}
 
 		//Mouse Operations
-		if (Input.GetMouseButtonDown(0) && !_cursorLocked)
+		if (Input.GetMouseButtonDown(0) && !_cursorLocked && !GameManager.Instance._battleActive)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;

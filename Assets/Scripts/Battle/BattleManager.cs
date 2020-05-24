@@ -30,6 +30,8 @@ public class BattleManager : MonoBehaviour
 	public BattleMove[] _moveList;
 	[SerializeField] DamageNumber _theDamageNumber;
 	[SerializeField] int _chanceToFlee = 35;
+	public Camera _battleCamera;
+	Camera _3DCamera;
 
 	bool _canRetreat;
 	bool _retreating;
@@ -67,11 +69,6 @@ public class BattleManager : MonoBehaviour
 			Destroy(gameObject);
 
 		DontDestroyOnLoad(gameObject);
-	}
-
-	void Start()
-	{
-
 	}
 
 	void Update()
@@ -117,8 +114,22 @@ public class BattleManager : MonoBehaviour
 			GameManager.Instance._battleActive = true;
 			_activeBattlers.Clear();
 
-			//move the BattleManager to the camera's position...
-			transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);
+			if (GameManager.Instance._inDungeon)
+			{
+				_3DCamera = Camera.main;
+				_3DCamera.enabled = false;
+				_battleCamera.enabled = true;
+				//move the Battle Manager to the FPC camera position...
+				//transform.position = new Vector3(MyCharacterController.Instance.transform.position.x, MyCharacterController.Instance.transform.position.y + 0.55f, MyCharacterController.Instance.transform.position.z);
+				transform.position = Vector3.zero;
+				Cursor.lockState = CursorLockMode.None;
+				MyCharacterController.Instance._cursorLocked = false;
+			}
+			else
+			{
+				//move the BattleManager to the camera's position...
+				transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);
+			}
 
 			_battleScene.SetActive(true);
 			AudioManager.Instance.PlayMusic(0);
@@ -582,6 +593,8 @@ public class BattleManager : MonoBehaviour
 		UpdatePlayerStats();
 		UIFade.Instance.FadeFromBlack();
 		_battleScene.SetActive(false);
+		_3DCamera.enabled = true;
+		_battleCamera.enabled = false;
 		_activeBattlers.Clear();
 		_currentTurn = 0;
 
@@ -595,7 +608,10 @@ public class BattleManager : MonoBehaviour
 			BattleRewards.Instance.OpenRewardScreen(_rewardXP, _rewardGold, _rewardItems);
 		}
 
-		AudioManager.Instance.PlayMusic(Camera.main.GetComponent<CameraController>()._musicToPlay);
+		if (!GameManager.Instance._inDungeon)
+			AudioManager.Instance.PlayMusic(Camera.main.GetComponent<CameraController>()._musicToPlay);
+		else
+			AudioManager.Instance.PlayMusic(MyCharacterController.Instance._musicToPlay);
 	}
 
 	IEnumerator GameOverRoutine()

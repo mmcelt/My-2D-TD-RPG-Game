@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 8
+  _canMove: 1
+  _musicToPlay: 3
 --- !u!1 &3469740874621643303
 GameObject:
   m_ObjectHideFlags: 0
