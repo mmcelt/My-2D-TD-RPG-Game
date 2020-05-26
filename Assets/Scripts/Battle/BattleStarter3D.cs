@@ -75,6 +75,7 @@ public class BattleStarter3D : MonoBehaviour
 		int selectedBattle = Random.Range(0, _potentialBattles.Length);
 		BattleManager.Instance._rewardItems = _potentialBattles[selectedBattle]._rewardItems;
 		BattleManager.Instance._rewardXP = _potentialBattles[selectedBattle]._rewardXP;
+		BattleManager.Instance._rewardGold = _potentialBattles[selectedBattle]._rewardGold;
 
 		yield return new WaitForSeconds(1.0f);
 
