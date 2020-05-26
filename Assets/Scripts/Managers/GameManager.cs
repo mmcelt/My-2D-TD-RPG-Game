@@ -9,15 +9,20 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager Instance;
 
+	[Header("Players")]
 	public CharSats[] _playerStats;
-	public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive, _inDungeon;
+	[HideInInspector] public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive, _inDungeon;
+	[Header("Items")]
 	public string[] _itemsHeld;
 	public int[] _numberHeldOfItem;
 	public Item[] _referenceItems;
-
+	[Header("Gold")]
 	public int _currentGold;
 
-	public bool _isContinuedGame;
+	[HideInInspector] public bool _isContinuedGame, _isCursed;
+	[HideInInspector] public float _curseInterval;
+
+	float _curseCounter;
 
 	#endregion
 
@@ -65,6 +70,22 @@ public class GameManager : MonoBehaviour
 					MyCharacterController.Instance._canMove = true;
 			}
 		}
+
+		//curse handler
+		if (_isCursed && _curseCounter <= 0)
+		{
+			foreach (CharSats player in GameManager.Instance._playerStats)
+			{
+				if (player.gameObject.activeSelf)
+				{
+					player._currentHP -= 1;
+					GameMenu.Instance.UpdateMainStats();
+				}
+			}
+			_curseCounter = _curseInterval;
+		}
+		if (_isCursed && _curseCounter > 0)
+			_curseCounter -= Time.deltaTime;
 
 		//if (Input.GetKeyDown(KeyCode.J))
 		//{

@@ -13,6 +13,7 @@ public class MyCharacterController : MonoBehaviour
 	public bool _cursorLocked;
 
 	public bool _canMove = true;
+
 	public int _musicToPlay;
 
 	#endregion

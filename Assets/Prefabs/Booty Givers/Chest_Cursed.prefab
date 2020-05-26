@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 6151598498350477778}
   - component: {fileID: 6151598498361468947}
   - component: {fileID: 6151598498361468949}
-  - component: {fileID: 6151598498361468936}
-  - component: {fileID: 6151598498361468951}
+  - component: {fileID: 4727715200506028017}
+  - component: {fileID: 3571248391234274406}
   m_Layer: 0
   m_Name: Chest_Cursed
   m_TagString: Untagged
@@ -167,7 +167,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6151598498361468936
+--- !u!114 &4727715200506028017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +182,9 @@ MonoBehaviour:
   _isLocked: 0
   _requiredKey: 
   _infoPanelShowTime: 1
---- !u!114 &6151598498361468951
+  _isCursed: 0
+  _curseInterval: 3
+--- !u!114 &3571248391234274406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

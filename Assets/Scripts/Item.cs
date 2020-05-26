@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
 	public int _itemValue;
 	[Header("Item Details")]
 	public int _amountToChange;
-	public bool _affectHP, _affectMP, _affectSTR, _affectDEF;
+	public bool _affectHP, _affectMP, _affectSTR, _affectDEF, _stopCurse;
 	public int _weaponStr, _armorStr;
 
 	#endregion
@@ -24,11 +24,6 @@ public class Item : MonoBehaviour
 	#region MonoBehaviour Methods
 
 	void Start() 
-	{
-		
-	}
-	
-	void Update() 
 	{
 		
 	}
@@ -57,6 +52,15 @@ public class Item : MonoBehaviour
 			if (_affectDEF)
 			{
 				selectedChar._defense += _amountToChange;
+			}
+			if (_stopCurse)
+			{
+				GameManager.Instance._isCursed = false;
+				foreach(CharSats player in GameManager.Instance._playerStats)
+				{
+					if(player.gameObject.activeSelf)
+						player._currentHP = player._maxHP;
+				}
 			}
 		}
 		if (_isWeapon)
