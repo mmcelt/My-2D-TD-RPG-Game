@@ -94,6 +94,12 @@ public class MyCharacterController : MonoBehaviour
 				{
 					chest.OperateChest();
 				}
+				//Revealing Hidden Doorways
+				HiddenDoor hiddenDoor = hit.transform.GetComponent<HiddenDoor>();
+				if (hiddenDoor)
+				{
+					hiddenDoor.RevealDoorway();
+				}
 			}
 		}
 	}

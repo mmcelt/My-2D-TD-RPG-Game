@@ -1,27 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class HiddenDoor : MonoBehaviour
+public class Confuser : MonoBehaviour
 {
 	#region Fields
 
-	[SerializeField] GameObject _theWall, _theDoorway;
+	[SerializeField] Transform _destination;
 
 	#endregion
 
 	#region MonoBehaviour Methods
 
+	void Start() 
+	{
+		
+	}
+	
+	void Update() 
+	{
+		
+	}
 	#endregion
 
 	#region Public Methods
 
-	public void RevealDoorway()
-	{
-		_theWall.SetActive(false);
-		_theDoorway.SetActive(true);
-	}
+
 	#endregion
 
 	#region Private Methods
