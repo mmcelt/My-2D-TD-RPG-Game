@@ -22,6 +22,7 @@ public class Healthbar : MonoBehaviour
 	
 	void Update() 
 	{
+		//TODO: CHANGE TO UPDATE WHEN NEEDED
 		_healthbar.value = _theChar._currentHP;
 	}
 	#endregion

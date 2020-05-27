@@ -46,7 +46,6 @@ public class CameraController : MonoBehaviour
 			_musicStarted = true;
 			AudioManager.Instance.PlayMusic(_musicToPlay);
 		}
-
 	}
 	#endregion
 

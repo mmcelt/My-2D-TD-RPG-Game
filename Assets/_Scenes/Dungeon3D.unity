@@ -9822,6 +9822,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3571248391234274406, guid: bb95ed0661a38e54d99a47c56a66b6c2,
+        type: 3}
+      propertyPath: _baseGold
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 4727715200506028017, guid: bb95ed0661a38e54d99a47c56a66b6c2,
         type: 3}
       propertyPath: _isCursed
@@ -9830,7 +9835,7 @@ PrefabInstance:
     - target: {fileID: 4727715200506028017, guid: bb95ed0661a38e54d99a47c56a66b6c2,
         type: 3}
       propertyPath: _curseInterval
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6151598498361468946, guid: bb95ed0661a38e54d99a47c56a66b6c2,
         type: 3}

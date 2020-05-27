@@ -36,13 +36,13 @@ public class Shop : MonoBehaviour
 		
 	}
 	
-	void Update() 
-	{
-		if(Input.GetKeyDown(KeyCode.K) && !_shopMenu.activeSelf)
-		{
-			OpenShop();
-		}
-	}
+	//void Update() 
+	//{
+	//	if(Input.GetKeyDown(KeyCode.K) && !_shopMenu.activeSelf)
+	//	{
+	//		OpenShop();
+	//	}
+	//}
 	#endregion
 
 	#region Public Methods

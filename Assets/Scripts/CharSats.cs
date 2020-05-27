@@ -43,12 +43,6 @@ public class CharSats : MonoBehaviour
 		_currentHP = _maxHP;
 		_currentMP = _maxMP;
 	}
-	
-	void Update() 
-	{
-		if (Input.GetKeyDown(KeyCode.K))
-			AddExp(1000);
-	}
 	#endregion
 
 	#region Public Methods

@@ -30,13 +30,13 @@ public class BattleRewards : MonoBehaviour
 			Destroy(gameObject);
 	}
 
-	void Update() 
-	{
-		if (Input.GetKeyDown(KeyCode.Y))
-		{
-			OpenRewardScreen(54, 100, new string[] { "Iron Sword", "Iron Armor" });
-		}
-	}
+	//void Update() 
+	//{
+	//	if (Input.GetKeyDown(KeyCode.Y))
+	//	{
+	//		OpenRewardScreen(54, 100, new string[] { "Iron Sword", "Iron Armor" });
+	//	}
+	//}
 	#endregion
 
 	#region Public Methods

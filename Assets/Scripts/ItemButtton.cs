@@ -19,11 +19,6 @@ public class ItemButtton : MonoBehaviour
 	{
 
 	}
-
-	void Update()
-	{
-
-	}
 	#endregion
 
 	#region Public Methods

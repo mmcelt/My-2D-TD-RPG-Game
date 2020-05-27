@@ -19,11 +19,6 @@ public class BattleTargetButton : MonoBehaviour
 	{
 		
 	}
-	
-	void Update() 
-	{
-		
-	}
 	#endregion
 
 	#region Public Methods

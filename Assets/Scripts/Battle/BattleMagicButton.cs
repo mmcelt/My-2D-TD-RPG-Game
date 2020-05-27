@@ -19,11 +19,6 @@ public class BattleMagicButton : MonoBehaviour
 	{
 		
 	}
-	
-	void Update() 
-	{
-		
-	}
 	#endregion
 
 	#region Public Methods

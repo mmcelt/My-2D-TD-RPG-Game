@@ -26,13 +26,13 @@ public class BootyGains: MonoBehaviour
 			Destroy(gameObject);
 	}
 
-	void Update() 
-	{
-		if (Input.GetKeyDown(KeyCode.B))
-		{
-			OpenBootyScreenRoutine(100, new string[] { "Iron Sword", "Mana Potion" }, 0.5f);
-		}
-	}
+	//void Update() 
+	//{
+	//	if (Input.GetKeyDown(KeyCode.B))
+	//	{
+	//		OpenBootyScreenRoutine(100, new string[] { "Iron Sword", "Mana Potion" }, 0.5f);
+	//	}
+	//}
 	#endregion
 
 	#region Public Methods

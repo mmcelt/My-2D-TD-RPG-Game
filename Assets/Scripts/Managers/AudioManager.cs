@@ -28,10 +28,6 @@ public class AudioManager : MonoBehaviour
 	{
 		
 	}
-	
-	void Update() 
-	{
-	}
 	#endregion
 
 	#region Public Methods
