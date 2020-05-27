@@ -14,9 +14,9 @@ public class BattleChar : MonoBehaviour
 	public string _equippedWpn, _equippedArm;
 	public bool _hasDied;
 
-	public SpriteRenderer _theSprite;
+	public SpriteRenderer _theSprite, _markerSprite;
 	public Sprite _deadSprite, _aliveSprite;
-
+	
 	bool _shouldFade;
 	public float _fadeSpeed = 1f;
 

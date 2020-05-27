@@ -140,7 +140,7 @@ public class GameMenu : MonoBehaviour
 
 		for(int i=0; i<_statusButtons.Length; i++)
 		{
-			_statusButtons[i].SetActive(_playerStats[i].gameObject.activeSelf);
+			//_statusButtons[i].SetActive(_playerStats[i].gameObject.activeSelf);
 			_statusButtons[i].GetComponentInChildren<Text>().text = _playerStats[i]._charName;
 		}
 

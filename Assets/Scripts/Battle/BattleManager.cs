@@ -171,6 +171,7 @@ public class BattleManager : MonoBehaviour
 						{
 							BattleChar newEnemy = Instantiate(enemy, _enemyPositions[i].transform.position, Quaternion.identity);
 							newEnemy.transform.SetParent(_enemyPositions[i]);
+							newEnemy._markerSprite.color = SetEnemyMarkerColor(i);
 							_activeBattlers.Add(newEnemy);
 						}
 					}
@@ -331,6 +332,7 @@ public class BattleManager : MonoBehaviour
 			{
 				//these are active enemies
 				_targetButtons[i].gameObject.SetActive(true);
+				_targetButtons[i].gameObject.GetComponent<Image>().color = _activeBattlers[enemies[i]]._markerSprite.color;
 				_targetButtons[i]._moveName = moveName;
 				_targetButtons[i]._activeBattlerTarget = enemies[i];
 				_targetButtons[i]._targetName.text = _activeBattlers[enemies[i]]._charName;
@@ -450,6 +452,39 @@ public class BattleManager : MonoBehaviour
 
 	#region Private Methods
 
+	Color SetEnemyMarkerColor(int index)
+	{
+		Color marker = Color.white;
+
+		switch (index)
+		{
+			case 0:
+				marker = Color.red;
+				break;
+
+			case 1:
+				marker = Color.blue;
+				break;
+
+			case 2:
+				marker = Color.green;
+				break;
+
+			case 3:
+				marker = Color.yellow;
+				break;
+
+			case 4:
+				marker = new Color(1f,0.65f,0f);
+				break;
+
+			case 5:
+				marker = Color.magenta;
+				break;
+		}
+
+		return marker;
+	}
 	void UpdateBattle()
 	{
 		bool allEnemiesDead = true;
@@ -471,7 +506,6 @@ public class BattleManager : MonoBehaviour
 				else
 				{
 					_activeBattlers[i].EnemyFade();
-					//_activeBattlers.RemoveAt(i);
 				}
 			}
 			else
@@ -593,7 +627,10 @@ public class BattleManager : MonoBehaviour
 		UpdatePlayerStats();
 		UIFade.Instance.FadeFromBlack();
 		_battleScene.SetActive(false);
-		_3DCamera.enabled = true;
+
+		if(GameManager.Instance._inDungeon)
+			_3DCamera.enabled = true;
+
 		_battleCamera.enabled = false;
 		_activeBattlers.Clear();
 		_currentTurn = 0;
