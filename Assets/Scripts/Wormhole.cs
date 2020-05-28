@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Confuser : MonoBehaviour
+public class Wormhole: MonoBehaviour
 {
 	#region Fields
 
@@ -16,10 +16,13 @@ public class Confuser : MonoBehaviour
 	{
 		
 	}
-	
-	void Update() 
+
+	void OnTriggerEnter(Collider other)
 	{
-		
+		if (other.CompareTag("Player"))
+		{
+			MyCharacterController.Instance.transform.position = _destination.position;
+		}
 	}
 	#endregion
 

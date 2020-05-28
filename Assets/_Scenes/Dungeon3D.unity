@@ -16236,6 +16236,96 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1075116644}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1075924932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1325455818}
+    m_Modifications:
+    - target: {fileID: 1447784299171103126, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299171103126, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744517, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447784299336744519, guid: da803f00751aa424d8a2f144d7e96eaf,
+        type: 3}
+      propertyPath: m_Name
+      value: Wormhole (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da803f00751aa424d8a2f144d7e96eaf, type: 3}
+--- !u!4 &1075924933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1075924932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1077449023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20261,8 +20351,9 @@ Transform:
   - {fileID: 6878753603491393828}
   - {fileID: 1909243359791978274}
   - {fileID: 718340515}
-  - {fileID: 688452001}
   - {fileID: 1551511713}
+  - {fileID: 688452001}
+  - {fileID: 1075924933}
   m_Father: {fileID: 1619434695}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24064,7 +24155,7 @@ PrefabInstance:
     - target: {fileID: 6341682235552213863, guid: d4f38d29e3da2b44590ed5698354db19,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6341682235552213863, guid: d4f38d29e3da2b44590ed5698354db19,
         type: 3}
@@ -28063,7 +28154,7 @@ PrefabInstance:
     - target: {fileID: -8951743587150013996, guid: e4b2dd2f7bd0d7847b226a7409ca615a,
         type: 3}
       propertyPath: _potentialBattles.Array.data[1]._rewardItems.Array.data[0]
-      value: Wooden Armor
+      value: Leather Armor
       objectReference: {fileID: 0}
     - target: {fileID: -8951743587150013996, guid: e4b2dd2f7bd0d7847b226a7409ca615a,
         type: 3}
@@ -28083,12 +28174,12 @@ PrefabInstance:
     - target: {fileID: 3264790516532485139, guid: e4b2dd2f7bd0d7847b226a7409ca615a,
         type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3264790516532485139, guid: e4b2dd2f7bd0d7847b226a7409ca615a,
         type: 3}
       propertyPath: m_Size.z
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6516457522580527623, guid: e4b2dd2f7bd0d7847b226a7409ca615a,
         type: 3}
@@ -31853,7 +31944,7 @@ PrefabInstance:
     - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1447784299336744518, guid: da803f00751aa424d8a2f144d7e96eaf,
         type: 3}
@@ -31873,7 +31964,7 @@ PrefabInstance:
     - target: {fileID: 1447784299336744519, guid: da803f00751aa424d8a2f144d7e96eaf,
         type: 3}
       propertyPath: m_Name
-      value: Confuser
+      value: Wormhole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da803f00751aa424d8a2f144d7e96eaf, type: 3}
