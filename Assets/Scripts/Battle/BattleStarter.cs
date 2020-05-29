@@ -92,9 +92,13 @@ public class BattleStarter : MonoBehaviour
 		BattleManager.Instance._rewardXP = _potentialBattles[selectedBattle]._rewardXP;
 		BattleManager.Instance._rewardGold = _potentialBattles[selectedBattle]._rewardGold;
 
+		PlayerController.Instance.GetComponent<SpriteRenderer>().enabled = false;
+
 		yield return new WaitForSeconds(1.0f);
 
 		UIFade.Instance.FadeFromBlack();
+
+		PlayerController.Instance.GetComponent<SpriteRenderer>().enabled = true;
 
 		yield return new WaitForSeconds(0.5f);
 
