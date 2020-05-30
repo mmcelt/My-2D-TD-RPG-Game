@@ -34,6 +34,9 @@ public class GameMenu : MonoBehaviour
 	[Header("Info Panel")]
 	public GameObject _infoPanel;
 	public Text _infoText;
+	[Header("Warning Panel")]
+	public GameObject _warningPanel;
+	public Text _warningText;
 
 	CharSats[] _playerStats;
 
@@ -250,8 +253,16 @@ public class GameMenu : MonoBehaviour
 		QuestManager.Instance.SaveQuestData();
 	}
 
+	public void ShowWarningPanel(string msg)
+	{
+		_warningText.color = Color.red;
+		_warningText.text = msg;
+		_warningPanel.SetActive(true);
+	}
+
 	public void QuitGame()
 	{
+		_warningPanel.SetActive(false);
 		SceneManager.LoadScene("MainMenu");
 		Destroy(GameManager.Instance.gameObject);
 		if(!GameManager.Instance._inDungeon)

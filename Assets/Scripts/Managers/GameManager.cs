@@ -313,12 +313,12 @@ public class GameManager : MonoBehaviour
 			_playerStats[i]._armorPwr = PlayerPrefs.GetInt("Player_" + _playerStats[i]._charName + "_armPWR");
 			_playerStats[i]._equippedWpn = PlayerPrefs.GetString("Player_" + _playerStats[i]._charName + "_equippedWpn");
 			_playerStats[i]._equippedArm = PlayerPrefs.GetString("Player_" + _playerStats[i]._charName + "_equippedArm");
-			//inventory data
-			for (i = 0; i < _itemsHeld.Length; i++)
-			{
-				_itemsHeld[i] = PlayerPrefs.GetString("ItemInInventory_" + i);
-				_numberHeldOfItem[i] = PlayerPrefs.GetInt("ItemAmount_" + i);
-			}
+		}
+		//inventory data
+		for (int i = 0; i < _itemsHeld.Length; i++)
+		{
+			_itemsHeld[i] = PlayerPrefs.GetString("ItemInInventory_" + i);
+			_numberHeldOfItem[i] = PlayerPrefs.GetInt("ItemAmount_" + i);
 		}
 	}
 	#endregion

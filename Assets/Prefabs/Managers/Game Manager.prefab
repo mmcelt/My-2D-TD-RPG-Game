@@ -51,7 +51,7 @@ MonoBehaviour:
   _maxLevel: 10
   _baseEXP: 1000
   _currentHP: 0
-  _maxHP: 300
+  _maxHP: 200
   _currentMP: 0
   _maxMP: 25
   _nextLvlMultiplier: 1.03
