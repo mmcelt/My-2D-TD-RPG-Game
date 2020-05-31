@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7032434835250765629}
   - component: {fileID: 3488438380557197533}
   - component: {fileID: 8898054679294682628}
+  - component: {fileID: 233204289}
   m_Layer: 8
   m_Name: Pillory_snaps010
   m_TagString: Untagged
@@ -94,3 +95,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fb7aca69af49fe34bbc35e7efe5f4a45, type: 2}
+--- !u!65 &233204289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451454621440546686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2562505, y: 1.3593749, z: 0.6877001}
+  m_Center: {x: 0.00000002980233, y: 0.67968744, z: 0.25}

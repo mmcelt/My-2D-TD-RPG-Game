@@ -9,6 +9,8 @@ public class OldSchoolFPC : MonoBehaviour
 
 	public static OldSchoolFPC Instance;
 
+	public enum Direction { N, E, S, W }
+
 	[SerializeField] GameObject _theCamera, _heldLight;
 	public float _lightIntensity, _lightLifetime;
 	[SerializeField] int _gridStep = 4;
@@ -23,6 +25,8 @@ public class OldSchoolFPC : MonoBehaviour
 	Vector3 _origPos;
 	float _origRotY, _newPos;
 	bool _rotationInProgress, _movementInProgress, _cameraLookingDown, _lightOn;
+
+	Direction _direction;
 
 	#endregion
 
@@ -47,6 +51,7 @@ public class OldSchoolFPC : MonoBehaviour
 		_origPos = transform.localPosition;
 		Cursor.lockState = CursorLockMode.None;
 		AudioManager.Instance.PlayMusic(_musicToPlay);
+		UpdateCompass();
 	}
 
 	void Update()
@@ -293,7 +298,7 @@ public class OldSchoolFPC : MonoBehaviour
 			transform.localRotation = Quaternion.Euler(origRotation.x, Mathf.Round(newY), origRotation.z);
 		}
 		_rotationInProgress = false;
-		StopAllCoroutines();
+		UpdateCompass();
 	}
 
 	IEnumerator ShowLight()
@@ -311,6 +316,31 @@ public class OldSchoolFPC : MonoBehaviour
 		_lightOn = false;
 		_lightLifetime = 0;
 		_heldLight.SetActive(false);
+	}
+
+	void UpdateCompass()
+	{
+		//transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.RoundToInt(transform.eulerAngles.y), transform.eulerAngles.z);
+		
+		if (transform.eulerAngles.y >= -10 && transform.eulerAngles.y <= 10)
+		{
+			DungeonHUD.Instance.SetCompassNeedle(0);
+		}
+		if (transform.eulerAngles.y >= 80 && transform.eulerAngles.y <= 100)
+		{
+			DungeonHUD.Instance.SetCompassNeedle(1);
+
+		}
+		if (transform.eulerAngles.y >= 170 && transform.eulerAngles.y <= 190)
+		{
+			DungeonHUD.Instance.SetCompassNeedle(2);
+
+		}
+		if (transform.eulerAngles.y >=-100 && transform.eulerAngles.y <= -80 || transform.eulerAngles.y >= 260 && transform.eulerAngles.y <= 280)
+		{
+			DungeonHUD.Instance.SetCompassNeedle(3);
+
+		}
 	}
 	#endregion
 }

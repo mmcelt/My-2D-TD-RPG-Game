@@ -326,7 +326,7 @@ MonoBehaviour:
   _dungeonWalls:
     serializedVersion: 2
     m_Bits: 256
-  _rayLength: 2.5
+  _rayLength: 3.5
   _moveDelayTime: 0.1
   _canMove: 0
   _haveLight: 0
