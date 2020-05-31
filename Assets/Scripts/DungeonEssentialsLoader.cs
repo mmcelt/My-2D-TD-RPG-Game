@@ -34,10 +34,10 @@ public class DungeonEssentialsLoader : MonoBehaviour
 		{
 			GameManager.Instance = Instantiate(_gameManager).GetComponent<GameManager>();
 		}
-		//if (AudioManager.Instance == null)
-		//{
-		//	AudioManager.Instance = Instantiate(_audioManager).GetComponent<AudioManager>();
-		//}
+		if (AudioManager.Instance == null)
+		{
+			AudioManager.Instance = Instantiate(_audioManager).GetComponent<AudioManager>();
+		}
 	}
 	#endregion
 

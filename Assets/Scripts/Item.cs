@@ -9,6 +9,7 @@ public class Item : MonoBehaviour
 	[Header("Item Type")]
 	public bool _isItem;
 	public bool _isLight;
+	public bool _isSpell;
 	public bool _isWeapon;
 	public bool _isArmor;
 	[Header("Item Info")]
@@ -22,6 +23,8 @@ public class Item : MonoBehaviour
 	[Header("Light Info")]
 	public float _intensity;
 	public float _lifetime;
+	[Header("Spell Info")]
+	public int _manaCost;
 
 	#endregion
 
@@ -97,6 +100,15 @@ public class Item : MonoBehaviour
 			{
 				selectedChar._equippedArm = _itemName;
 				selectedChar._armorPwr = _armorStr;
+			}
+		}
+		if (_isLight)
+		{
+			if (GameManager.Instance._inDungeon)
+			{
+				OldSchoolFPC.Instance._haveLight = true;
+				OldSchoolFPC.Instance._lightIntensity = _intensity;
+				OldSchoolFPC.Instance._lightLifetime = _lifetime;
 			}
 		}
 		//remove the item from the inventory...

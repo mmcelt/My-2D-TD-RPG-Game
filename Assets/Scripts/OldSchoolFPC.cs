@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using JetBrains.Annotations;
+using UnityEditor;
 
 public class OldSchoolFPC : MonoBehaviour
 {
@@ -8,19 +9,20 @@ public class OldSchoolFPC : MonoBehaviour
 
 	public static OldSchoolFPC Instance;
 
-	[SerializeField] GameObject _theCamera;
+	[SerializeField] GameObject _theCamera, _heldLight;
+	public float _lightIntensity, _lightLifetime;
 	[SerializeField] int _gridStep = 4;
 	[SerializeField] float _moveSpeed = 5f;
 	[SerializeField] float _rotSpeed = 1f;
 	[SerializeField] LayerMask _dungeonWalls;
 	[SerializeField] float _rayLength = 2f;
 	[SerializeField] float _moveDelayTime = 0.1f;
-	[HideInInspector] public bool _canMove;
+	public bool _canMove, _haveLight;
 	public int _musicToPlay;
 
 	Vector3 _origPos;
 	float _origRotY, _newPos;
-	bool _rotationInProgress, _movementInProgress, _cameraLookingDown;
+	bool _rotationInProgress, _movementInProgress, _cameraLookingDown, _lightOn;
 
 	#endregion
 
@@ -44,6 +46,7 @@ public class OldSchoolFPC : MonoBehaviour
 		GameManager.Instance._inDungeon = true;
 		_origPos = transform.localPosition;
 		Cursor.lockState = CursorLockMode.None;
+		AudioManager.Instance.PlayMusic(_musicToPlay);
 	}
 
 	void Update()
@@ -51,12 +54,7 @@ public class OldSchoolFPC : MonoBehaviour
 		if (_canMove && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
 		{
 			float translation = _gridStep * _moveSpeed;
-			//translation *= Time.deltaTime;
-
 			transform.Translate(0f, 0f, translation);
-			//_origPos = transform.position;
-			//_origRotY = transform.eulerAngles.y;
-			//_movementInProgress = true;
 		}
 		//do an about-face...
 		if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -113,7 +111,13 @@ public class OldSchoolFPC : MonoBehaviour
 				}
 			}
 		}
-
+		//Light
+		if (_haveLight && !_lightOn)
+		{
+			StartCoroutine(ShowLight());
+		}
+		if (_haveLight && _lightOn)
+			_lightLifetime -= Time.deltaTime;
 	}
 
 	void FixedUpdate()
@@ -290,6 +294,23 @@ public class OldSchoolFPC : MonoBehaviour
 		}
 		_rotationInProgress = false;
 		StopAllCoroutines();
+	}
+
+	IEnumerator ShowLight()
+	{
+		_lightOn = true;
+		_heldLight.SetActive(true);
+		_heldLight.GetComponent<FlickeringLight>()._baseIntensity = _lightIntensity;
+		yield return new WaitWhile(() => _lightLifetime >= 0f);
+		TurnOffLight();
+	}
+
+	void TurnOffLight()
+	{
+		_haveLight = false;
+		_lightOn = false;
+		_lightLifetime = 0;
+		_heldLight.SetActive(false);
 	}
 	#endregion
 }

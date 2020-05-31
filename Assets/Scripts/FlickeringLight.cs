@@ -6,7 +6,7 @@ public class FlickeringLight : MonoBehaviour
 {
 	#region Fields
 
-	[SerializeField] float _baseIntensity = 1f, _baseIncrementTime = 1f;
+	public float _baseIntensity = 1f, _baseIncrementTime = 0.2f;
 
 	Light _theLight;
 

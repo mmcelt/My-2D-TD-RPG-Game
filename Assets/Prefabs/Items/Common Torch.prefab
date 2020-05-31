@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5783993936539720474}
   - component: {fileID: 1062735807675319669}
   m_Layer: 0
-  m_Name: Torch_Common
+  m_Name: Common Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9058896649743914699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.986249, y: -2.9103475, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isItem: 0
   _isLight: 1
+  _isSpell: 0
   _isWeapon: 0
   _isArmor: 0
   _itemSprite: {fileID: 21300102, guid: 7ba93a1b64b1d3d46aad5a08a3c8ab5c, type: 3}
@@ -110,5 +111,6 @@ MonoBehaviour:
   _stopCurse: 0
   _weaponStr: 0
   _armorStr: 0
-  _intensity: 2
+  _intensity: 1.5
   _lifetime: 600
+  _manaCost: 0

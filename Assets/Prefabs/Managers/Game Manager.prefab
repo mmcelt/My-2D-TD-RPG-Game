@@ -171,6 +171,9 @@ MonoBehaviour:
   - {fileID: 6853245138619596832, guid: 5f3ff049c3b491d4b9fb5546796882c7, type: 3}
   - {fileID: 5723218958312533070, guid: d74f89e6256738c48a7c7c988b8a434e, type: 3}
   - {fileID: 7849189110778118727, guid: 0462b9229e1bb0a4183fd23f8ed64a59, type: 3}
+  - {fileID: 1062735807675319669, guid: be694b4830c70bb4b9ea92f59ae88b0a, type: 3}
+  - {fileID: 3675380258471483565, guid: 386710e81f60f1a42b38fb74aa622d24, type: 3}
+  - {fileID: 3418071851514782977, guid: 182e5e1f790d2d64999dc32fab461ebd, type: 3}
   _currentGold: 100
   _isContinuedGame: 0
   _isCursed: 0
