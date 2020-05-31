@@ -21,7 +21,7 @@ public class DungeonEntrance : MonoBehaviour
 		//}
 		if(_inDungeon && _transitionName == PlayerController.Instance._areaTransitionName)
 		{
-			MyCharacterController.Instance.transform.position = transform.position;
+			OldSchoolFPC.Instance.transform.position = transform.position;
 			GameManager.Instance._inDungeon = true;
 		}
 

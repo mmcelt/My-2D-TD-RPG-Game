@@ -14,9 +14,13 @@ public class DungeonEssentialsLoader : MonoBehaviour
 
 	void Start() 
 	{
-		if (MyCharacterController.Instance == null)
+		//if (MyCharacterController.Instance == null)
+		//{
+		//	MyCharacterController.Instance = Instantiate(_dungeonPlayer).GetComponent<MyCharacterController>();
+		//}
+		if (OldSchoolFPC.Instance == null)
 		{
-			MyCharacterController.Instance = Instantiate(_dungeonPlayer).GetComponent<MyCharacterController>();
+			OldSchoolFPC.Instance = Instantiate(_dungeonPlayer).GetComponent<OldSchoolFPC>();
 		}
 		if (UIFade.Instance == null)
 		{

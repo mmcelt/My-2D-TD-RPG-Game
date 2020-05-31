@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 				PlayerController.Instance._canMove = false;
 			else
 			{
-				MyCharacterController.Instance._canMove = false;
+				OldSchoolFPC.Instance._canMove = false;
 			}
 		}
 		else
@@ -66,8 +66,8 @@ public class GameManager : MonoBehaviour
 				PlayerController.Instance._canMove = true;
 			else
 			{
-				if(MyCharacterController.Instance)
-					MyCharacterController.Instance._canMove = true;
+				if(OldSchoolFPC.Instance)
+					OldSchoolFPC.Instance._canMove = true;
 			}
 		}
 
@@ -229,9 +229,9 @@ public class GameManager : MonoBehaviour
 		//in dungeon...
 		if (_inDungeon)
 		{
-			PlayerPrefs.SetFloat("DungeonPlayer_Position_x", MyCharacterController.Instance.transform.position.x);
-			PlayerPrefs.SetFloat("DungeonPlayer_Position_y", MyCharacterController.Instance.transform.position.y);
-			PlayerPrefs.SetFloat("DungeonPlayer_Position_z", MyCharacterController.Instance.transform.position.z);
+			PlayerPrefs.SetFloat("DungeonPlayer_Position_x", OldSchoolFPC.Instance.transform.position.x);
+			PlayerPrefs.SetFloat("DungeonPlayer_Position_y", OldSchoolFPC.Instance.transform.position.y);
+			PlayerPrefs.SetFloat("DungeonPlayer_Position_z", OldSchoolFPC.Instance.transform.position.z);
 		}
 		//character infos...
 		for (int i=0; i<_playerStats.Length; i++)
@@ -282,12 +282,16 @@ public class GameManager : MonoBehaviour
 			_inDungeon = true;
 
 		//player position
-		PlayerController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("Player_Position_x"), PlayerPrefs.GetFloat("Player_Position_y"), PlayerPrefs.GetFloat("Player_Position_z"));
+		if (_inDungeon)
+		{
+			OldSchoolFPC.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("DungeonPlayer_Position_x"), PlayerPrefs.GetFloat("DungeonPlayer_Position_y"), PlayerPrefs.GetFloat("DungeonPlayer_Position_z"));
 
-		//if (_inDungeon)
-		//{
-		//	MyCharacterController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("DungeonPlayer_Position_x"), PlayerPrefs.GetFloat("DungeonPlayer_Position_y"), PlayerPrefs.GetFloat("DungeonPlayer_Position_z"));
-		//}
+			PlayerController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("Player_Position_x"), PlayerPrefs.GetFloat("Player_Position_y"), PlayerPrefs.GetFloat("Player_Position_z"));
+			PlayerController.Instance.gameObject.SetActive(false);
+		}
+		else
+			PlayerController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("Player_Position_x"), PlayerPrefs.GetFloat("Player_Position_y"), PlayerPrefs.GetFloat("Player_Position_z"));
+
 
 		//character data
 		for (int i=0; i<_playerStats.Length; i++)

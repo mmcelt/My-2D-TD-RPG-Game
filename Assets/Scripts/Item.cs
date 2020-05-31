@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
 
 	[Header("Item Type")]
 	public bool _isItem;
+	public bool _isLight;
 	public bool _isWeapon;
 	public bool _isArmor;
 	[Header("Item Info")]
@@ -18,6 +19,9 @@ public class Item : MonoBehaviour
 	public int _amountToChange;
 	public bool _affectHP, _affectMP, _affectSTR, _affectDEF, _stopCurse;
 	public int _weaponStr, _armorStr;
+	[Header("Light Info")]
+	public float _intensity;
+	public float _lifetime;
 
 	#endregion
 

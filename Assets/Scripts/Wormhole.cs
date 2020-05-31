@@ -12,16 +12,11 @@ public class Wormhole: MonoBehaviour
 
 	#region MonoBehaviour Methods
 
-	void Start() 
-	{
-		
-	}
-
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			MyCharacterController.Instance.transform.position = _destination.position;
+			OldSchoolFPC.Instance.transform.position = _destination.position;
 		}
 	}
 	#endregion

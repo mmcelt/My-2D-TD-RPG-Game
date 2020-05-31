@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
 	public void NewGame()
 	{
-		PlayerPrefs.DeleteAll();
+		//PlayerPrefs.DeleteAll();
 		SceneManager.LoadScene(_newGameScene);
 	}
 

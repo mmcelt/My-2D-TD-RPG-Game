@@ -123,7 +123,7 @@ public class BattleManager : MonoBehaviour
 				//transform.position = new Vector3(MyCharacterController.Instance.transform.position.x, MyCharacterController.Instance.transform.position.y + 0.55f, MyCharacterController.Instance.transform.position.z);
 				transform.position = Vector3.zero;
 				Cursor.lockState = CursorLockMode.None;
-				MyCharacterController.Instance._cursorLocked = false;
+				//MyCharacterController.Instance._cursorLocked = false;
 			}
 			else
 			{
@@ -648,7 +648,7 @@ public class BattleManager : MonoBehaviour
 		if (!GameManager.Instance._inDungeon)
 			AudioManager.Instance.PlayMusic(Camera.main.GetComponent<CameraController>()._musicToPlay);
 		else
-			AudioManager.Instance.PlayMusic(MyCharacterController.Instance._musicToPlay);
+			AudioManager.Instance.PlayMusic(OldSchoolFPC.Instance._musicToPlay);
 	}
 
 	IEnumerator GameOverRoutine()

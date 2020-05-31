@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using JetBrains.Annotations;
 
 public class OldSchoolFPC : MonoBehaviour
 {
@@ -7,15 +8,19 @@ public class OldSchoolFPC : MonoBehaviour
 
 	public static OldSchoolFPC Instance;
 
+	[SerializeField] GameObject _theCamera;
 	[SerializeField] int _gridStep = 4;
 	[SerializeField] float _moveSpeed = 5f;
 	[SerializeField] float _rotSpeed = 1f;
 	[SerializeField] LayerMask _dungeonWalls;
+	[SerializeField] float _rayLength = 2f;
 	[SerializeField] float _moveDelayTime = 0.1f;
+	[HideInInspector] public bool _canMove;
+	public int _musicToPlay;
 
 	Vector3 _origPos;
 	float _origRotY, _newPos;
-	bool _rotationInProgress, _movementInProgress, _canMove;
+	bool _rotationInProgress, _movementInProgress, _cameraLookingDown;
 
 	#endregion
 
@@ -35,25 +40,25 @@ public class OldSchoolFPC : MonoBehaviour
 
 	void Start()
 	{
+		_canMove = true;
 		GameManager.Instance._inDungeon = true;
 		_origPos = transform.localPosition;
+		Cursor.lockState = CursorLockMode.None;
 	}
 
 	void Update()
 	{
-		if (_movementInProgress)
-		{
-			MovePlayer();
-		}
-		if (_movementInProgress || _rotationInProgress) return;
-
 		if (_canMove && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
 		{
-			_origPos = transform.position;
-			_origRotY = transform.eulerAngles.y;
-			_movementInProgress = true;
-		}
+			float translation = _gridStep * _moveSpeed;
+			//translation *= Time.deltaTime;
 
+			transform.Translate(0f, 0f, translation);
+			//_origPos = transform.position;
+			//_origRotY = transform.eulerAngles.y;
+			//_movementInProgress = true;
+		}
+		//do an about-face...
 		if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
 		{
 			_rotationInProgress = true;
@@ -61,13 +66,13 @@ public class OldSchoolFPC : MonoBehaviour
 
 			StartCoroutine(RotatePlayer(Vector3.up * 180));
 		}
-
+		//turn 90 deg to the right...
 		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
 		{
 			_rotationInProgress = true;
 			StartCoroutine(RotatePlayer(Vector3.up * 90));
 		}
-
+		//turn 90 deg to the left...
 		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
 		{
 			_rotationInProgress = true;
@@ -75,26 +80,45 @@ public class OldSchoolFPC : MonoBehaviour
 		}
 
 		//Mouse Operations
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && !GameManager.Instance._battleActive)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit rayCastHit;
+			RaycastHit hit;
 
-			if (Physics.Raycast(ray.origin, ray.direction, out rayCastHit, Mathf.Infinity))
+			if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
 			{
 				//Operating Doors
-				Door door = rayCastHit.transform.GetComponent<Door>();
+				Door door = hit.transform.GetComponent<Door>();
 				if (door)
 				{
 					door.OperateDoor();
 				}
+				//Operating Boxes
+				Box box = hit.transform.GetComponent<Box>();
+				if (box)
+				{
+					box.OperateBox();
+				}
+				//Operating Chests
+				Chest chest = hit.transform.GetComponent<Chest>();
+				if (chest)
+				{
+					chest.OperateChest();
+				}
+				//Revealing Hidden Doorways
+				HiddenDoor hiddenDoor = hit.transform.GetComponent<HiddenDoor>();
+				if (hiddenDoor)
+				{
+					hiddenDoor.RevealDoorway();
+				}
 			}
 		}
+
 	}
 
 	void FixedUpdate()
 	{
-		if (Physics.Raycast(transform.position, transform.forward, 2f, _dungeonWalls))
+		if (Physics.Raycast(transform.position, transform.forward, _rayLength, _dungeonWalls))
 		{
 			_canMove = false;
 		}
@@ -107,10 +131,39 @@ public class OldSchoolFPC : MonoBehaviour
 
 	#region Public Methods
 
-
+	public void AdjustCamera()
+	{
+		if (!_cameraLookingDown)
+		{
+			_theCamera.transform.localEulerAngles = new Vector3(20, 0, 0);
+			_cameraLookingDown = true;
+		}
+		else
+		{
+			_theCamera.transform.localEulerAngles = Vector3.zero;
+			_cameraLookingDown = false;
+		}
+	}
 	#endregion
 
 	#region Private Methods
+
+	//bool ValidDestination()
+	//{
+	//	Ray ray = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
+	//	RaycastHit hit;
+
+	//	Debug.DrawRay(ray.origin, ray.direction, Color.red);
+
+	//	if (Physics.Raycast(ray, out hit, _rayLength))
+	//	{
+	//		if (hit.collider.CompareTag("Wall"))
+	//		{
+	//			return false;
+	//		}
+	//	}
+	//	return true;
+	//}
 
 	void MovePlayer()
 	{
