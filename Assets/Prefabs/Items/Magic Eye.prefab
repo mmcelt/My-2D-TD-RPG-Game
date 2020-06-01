@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3418071851514782976}
   - component: {fileID: 3418071851514782979}
   - component: {fileID: 3418071851514782977}
+  - component: {fileID: -1709976419151154883}
   m_Layer: 0
-  m_Name: Magic Light
+  m_Name: Magic Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,14 +96,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isItem: 0
-  _isLight: 1
+  _isLight: 0
   _isSpell: 1
   _isWeapon: 0
   _isArmor: 0
   _itemSprite: {fileID: 21300000, guid: 619da714ddc4f354f804d6102a268fdf, type: 3}
-  _itemName: Magic Light
-  _itemDesc: Very good Illumination Spell
-  _itemValue: 30
+  _itemName: Magic Eye
+  _itemDesc: Very good Revelation Spell
+  _itemValue: 100
   _amountToChange: 0
   _affectHP: 0
   _affectMP: 0
@@ -111,6 +112,20 @@ MonoBehaviour:
   _stopCurse: 0
   _weaponStr: 0
   _armorStr: 0
+  _lightUIIndex: 0
   _intensity: 10
   _lifetime: 5000
-  _manaCost: 15
+  _range: 0
+  _manaCost: 100
+--- !u!114 &-1709976419151154883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3418071851514782978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bfc9f00dc1e404db4586f7ca5c9f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13024,6 +13024,7 @@ MonoBehaviour:
   - {fileID: 42730844241773074, guid: ae01b789d174ab34db58d4b599aed2e2, type: 3}
   _gameOverScene: GameOver
   _battleBG: {fileID: 4638990439949680431}
+  _BG: {fileID: 0}
   _activeBattlers: []
   _currentTurn: 0
   _turnWaiting: 0
@@ -13051,6 +13052,36 @@ MonoBehaviour:
     _movePower: 85
     _moveCost: 10
     _thEffect: {fileID: 2574212046553622151, guid: bde39ce0adaeb6243a92ee08abb3eea1,
+      type: 3}
+  - _moveName: Major Fire
+    _movePower: 90
+    _moveCost: 15
+    _thEffect: {fileID: 5650947436847810228, guid: e76fcac68171d22488611ef8945b1384,
+      type: 3}
+  - _moveName: Fire Aura
+    _movePower: 85
+    _moveCost: 15
+    _thEffect: {fileID: -6041465127485898228, guid: b64a0f1c96585154790835462b992d52,
+      type: 3}
+  - _moveName: Flame
+    _movePower: 95
+    _moveCost: 20
+    _thEffect: {fileID: 4181315823698718384, guid: 4954c0427d3d6004b8eea04df7e4df6f,
+      type: 3}
+  - _moveName: Tornado
+    _movePower: 100
+    _moveCost: 25
+    _thEffect: {fileID: 3271854194491141201, guid: 62383d3f473a71e4bb403acfd7d9902b,
+      type: 3}
+  - _moveName: Lightning
+    _movePower: 95
+    _moveCost: 20
+    _thEffect: {fileID: -5750831032834945306, guid: 3cf793db52fd7304eb76f5a2f457c067,
+      type: 3}
+  - _moveName: Ice Storm
+    _movePower: 95
+    _moveCost: 20
+    _thEffect: {fileID: 3085212786697059753, guid: 729d007771ad53b41b7ace4de6edc746,
       type: 3}
   _theDamageNumber: {fileID: 1572582556631755039, guid: 2f7dc2e40cda3404fb7854af8a851505,
     type: 3}
@@ -24785,7 +24816,7 @@ PrefabInstance:
     - target: {fileID: 837523526729459294, guid: 9faca68f36b5f4847b0f13217377b1b4,
         type: 3}
       propertyPath: m_Name
-      value: Eyeball (1)
+      value: Eyeball
       objectReference: {fileID: 0}
     - target: {fileID: 837523526729459294, guid: 9faca68f36b5f4847b0f13217377b1b4,
         type: 3}

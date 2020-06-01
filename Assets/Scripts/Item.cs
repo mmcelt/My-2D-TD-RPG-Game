@@ -113,11 +113,21 @@ public class Item : MonoBehaviour
 				DungeonHUD.Instance.ShowLightIcon(_lightUIIndex);
 			}
 		}
+		if (_isSpell)
+		{
+			if (_itemName == "Magic Eye")
+				GetComponent<MagicEye>().FindAllHiddenDoors();
+
+			GameManager.Instance._playerStats[charToUseOn]._currentMP -= _manaCost;
+		}
+
 		//remove the item from the inventory...
 		GameManager.Instance.RemoveItem(_itemName);
 
 		GameMenu.Instance._useButton.interactable = false;
 		GameMenu.Instance._dropButton.interactable = false;
+		foreach (Button btn in GameMenu.Instance._selectCharacterButtons)
+			btn.enabled = true;
 	}
 
 	public void UseForBattle(int battler)

@@ -115,4 +115,4 @@ MonoBehaviour:
   _intensity: 10
   _lifetime: 3600
   _range: 30
-  _manaCost: 100
+  _manaCost: 80

@@ -28,8 +28,25 @@ public class ItemButtton : MonoBehaviour
 				GameMenu.Instance.SelectItem(GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue]));
 				//I ADDED THIS TO USE THE _SELECTEDiTEM FIELD IN GAMEMENU...
 				//GameMenu.Instance._selectedItem = GameManager.Instance._itemsHeld[_buttonValue];
-				GameMenu.Instance._useButton.interactable = true;
-				GameMenu.Instance._dropButton.interactable = true;
+				if (GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue])._isSpell)
+				{
+					if (CheckForSufficientManaForSpells())
+					{
+						GameMenu.Instance._useButton.interactable = true;
+						GameMenu.Instance._dropButton.interactable = true;
+					}
+					else
+					{
+						GameMenu.Instance._useButton.interactable = false;
+						GameMenu.Instance._dropButton.interactable = false;
+					}
+				}
+				else
+				{
+					GameMenu.Instance._useButton.interactable = true;
+					GameMenu.Instance._dropButton.interactable = true;
+				}
+
 			}
 			else
 			{
@@ -91,6 +108,28 @@ public class ItemButtton : MonoBehaviour
 
 	#region Private Methods
 
+	bool CheckForSufficientManaForSpells()
+	{
+		bool requiredMana = false;
 
+		//foreach (Button btn in GameMenu.Instance._selectCharacterButtons)
+		//	btn.enabled = true;
+
+		//check if a player has enough mana to cast the spell...
+		for (int i = 0; i < GameManager.Instance._playerStats.Length; i++)
+		{
+			if (GameManager.Instance._playerStats[i]._currentMP >= GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue])._manaCost)
+			{
+				GameMenu.Instance._selectCharacterButtons[i].enabled = true;
+				requiredMana = true;
+			}
+			else
+			{
+				GameMenu.Instance._selectCharacterButtons[i].enabled = false;
+			}
+		}
+
+		return requiredMana;
+	}
 	#endregion
 }

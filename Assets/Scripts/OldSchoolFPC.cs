@@ -65,7 +65,7 @@ public class OldSchoolFPC : MonoBehaviour
 			transform.Translate(0f, 0f, translation);
 		}
 		//do an about-face...
-		if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+		if (!_rotationInProgress && Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
 		{
 			_rotationInProgress = true;
 			_origPos = transform.position;
@@ -73,13 +73,13 @@ public class OldSchoolFPC : MonoBehaviour
 			StartCoroutine(RotatePlayer(Vector3.up * 180));
 		}
 		//turn 90 deg to the right...
-		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+		if (!_rotationInProgress && Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
 		{
 			_rotationInProgress = true;
 			StartCoroutine(RotatePlayer(Vector3.up * 90));
 		}
 		//turn 90 deg to the left...
-		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+		if (!_rotationInProgress && Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
 		{
 			_rotationInProgress = true;
 			StartCoroutine(RotatePlayer(Vector3.up * -90));

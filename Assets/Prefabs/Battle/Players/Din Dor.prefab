@@ -99,6 +99,8 @@ MonoBehaviour:
   _movesAvailable:
   - Fireball
   - Plasma
+  - Major Fire
+  - Flame
   _charName: Din Dor
   _currentHP: 0
   _maxHP: 0
@@ -112,7 +114,9 @@ MonoBehaviour:
   _equippedArm: 
   _hasDied: 0
   _theSprite: {fileID: 7646517493638141645}
+  _markerSprite: {fileID: 0}
   _deadSprite: {fileID: -2742738481261246757, guid: d63b420b9364cbb49825d6ad736114d8,
     type: 3}
   _aliveSprite: {fileID: -1820109380404049340, guid: 332f33b5a664c9647a8cf391b1075e8e,
     type: 3}
+  _fadeSpeed: 1

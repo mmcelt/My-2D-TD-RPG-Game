@@ -7,7 +7,7 @@ public class HiddenDoor : MonoBehaviour
 {
 	#region Fields
 
-	[SerializeField] GameObject _theWall, _theDoorway;
+	public GameObject _theWall, _theDoorway;
 
 	#endregion
 

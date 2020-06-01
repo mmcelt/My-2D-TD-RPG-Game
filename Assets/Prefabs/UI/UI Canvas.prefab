@@ -48021,6 +48021,10 @@ MonoBehaviour:
   - {fileID: 1796784028}
   - {fileID: 796793062}
   - {fileID: 512041559}
+  _selectCharacterButtons:
+  - {fileID: 1536113279}
+  - {fileID: 1559841522}
+  - {fileID: 531030956}
   _goldAmountText: {fileID: 6411644707420619205}
   _infoPanel: {fileID: 1634367851}
   _infoText: {fileID: 156008614}
