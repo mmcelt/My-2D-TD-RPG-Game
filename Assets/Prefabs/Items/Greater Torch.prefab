@@ -96,13 +96,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isItem: 0
   _isLight: 1
-  _isSpell: 0
+  _isSpell: 1
   _isWeapon: 0
   _isArmor: 0
   _itemSprite: {fileID: 21300104, guid: 7ba93a1b64b1d3d46aad5a08a3c8ab5c, type: 3}
   _itemName: Greater Torch
   _itemDesc: More light for longer time
-  _itemValue: 25
+  _itemValue: 50
   _amountToChange: 0
   _affectHP: 0
   _affectMP: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   _stopCurse: 0
   _weaponStr: 0
   _armorStr: 0
-  _intensity: 5
-  _lifetime: 1200
-  _manaCost: 0
+  _lightUIIndex: 2
+  _intensity: 10
+  _lifetime: 2400
+  _range: 20
+  _manaCost: 20

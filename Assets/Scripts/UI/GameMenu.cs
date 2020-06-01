@@ -263,6 +263,7 @@ public class GameMenu : MonoBehaviour
 	public void QuitGame()
 	{
 		_warningPanel.SetActive(false);
+		_theMenu.SetActive(false);
 		SceneManager.LoadScene("MainMenu");
 		Destroy(GameManager.Instance.gameObject);
 		if(!GameManager.Instance._inDungeon)

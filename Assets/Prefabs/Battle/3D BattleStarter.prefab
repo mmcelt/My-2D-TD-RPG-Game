@@ -57,3 +57,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b76da6bf095cde4b9557980443bcd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _potentialBattles: []
+  _activateOnEnter: 0
+  _activateOnStay: 0
+  _activateOnExit: 0
+  _dactivateAfterStarting: 0
+  _canRetreat: 1
+  _timeBetweenBattles: 10
+  _shouldCompleteQuest: 0
+  _questToComplete: 
+  _battleBackground: {fileID: 21300000, guid: dfce6b7656338c244aefe65269df8585, type: 3}

@@ -9,9 +9,16 @@ public class DungeonHUD : MonoBehaviour
 
 	public static DungeonHUD Instance;
 
+	[SerializeField] GameObject _hudPanel;
+
 	[Header("Compass")]
 	[SerializeField] Image _compass;
 	[SerializeField] Sprite[] _needlePoints;
+	[Header("Light")]
+	[SerializeField] Image _lightHolder;
+	[SerializeField] Image[] _lightImages;
+
+	bool _panelOpen;
 
 	#endregion
 
@@ -34,7 +41,19 @@ public class DungeonHUD : MonoBehaviour
 	
 	void Update() 
 	{
-		
+		if (GameManager.Instance._inDungeon)
+		{
+			if (!_panelOpen)
+			{
+				_hudPanel.SetActive(true);
+				_panelOpen = true;
+			}
+		}
+		else
+		{
+			_hudPanel.SetActive(false);
+			_panelOpen = false;
+		}
 	}
 	#endregion
 

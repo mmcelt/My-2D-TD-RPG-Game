@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -21,8 +22,10 @@ public class Item : MonoBehaviour
 	public bool _affectHP, _affectMP, _affectSTR, _affectDEF, _stopCurse;
 	public int _weaponStr, _armorStr;
 	[Header("Light Info")]
+	public int _lightUIIndex;
 	public float _intensity;
 	public float _lifetime;
+	public float _range;
 	[Header("Spell Info")]
 	public int _manaCost;
 
@@ -106,9 +109,7 @@ public class Item : MonoBehaviour
 		{
 			if (GameManager.Instance._inDungeon)
 			{
-				OldSchoolFPC.Instance._haveLight = true;
-				OldSchoolFPC.Instance._lightIntensity = _intensity;
-				OldSchoolFPC.Instance._lightLifetime = _lifetime;
+				StartCoroutine(OldSchoolFPC.Instance.TurnOnLight(_intensity, _range, _lifetime));
 			}
 		}
 		//remove the item from the inventory...

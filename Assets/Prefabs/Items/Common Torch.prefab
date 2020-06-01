@@ -111,6 +111,8 @@ MonoBehaviour:
   _stopCurse: 0
   _weaponStr: 0
   _armorStr: 0
+  _lightUIIndex: 0
   _intensity: 1.5
   _lifetime: 600
+  _range: 10
   _manaCost: 0

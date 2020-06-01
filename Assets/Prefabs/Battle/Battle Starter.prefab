@@ -75,6 +75,7 @@ MonoBehaviour:
     - Skeleton
     - Spider
     _rewardXP: 200
+    _rewardGold: 0
     _rewardItems:
     - Iron Sword
   - _enemies:
@@ -82,12 +83,14 @@ MonoBehaviour:
     - Eyeball
     - Eyeball
     _rewardXP: 500
+    _rewardGold: 0
     _rewardItems:
     - Health Potion
     - Health Potion
   - _enemies:
     - Spider
     _rewardXP: 100
+    _rewardGold: 0
     _rewardItems:
     - Leather Armor
   _activateOnEnter: 0
@@ -96,3 +99,6 @@ MonoBehaviour:
   _dactivateAfterStarting: 0
   _canRetreat: 1
   _timeBetweenBattles: 10
+  _shouldCompleteQuest: 0
+  _questToComplete: 
+  _battleBackground: {fileID: 21300000, guid: 16af20c94d442ab4c8bff6c6a7d1885f, type: 3}

@@ -12,7 +12,8 @@ public class OldSchoolFPC : MonoBehaviour
 	public enum Direction { N, E, S, W }
 
 	[SerializeField] GameObject _theCamera, _heldLight;
-	public float _lightIntensity, _lightLifetime;
+	float _lightIntensity, _lightRange, _lightLifetime;
+	public bool _lightOn;
 	[SerializeField] int _gridStep = 4;
 	[SerializeField] float _moveSpeed = 5f;
 	[SerializeField] float _rotSpeed = 1f;
@@ -24,8 +25,8 @@ public class OldSchoolFPC : MonoBehaviour
 
 	Vector3 _origPos;
 	float _origRotY, _newPos;
-	bool _rotationInProgress, _movementInProgress, _cameraLookingDown, _lightOn;
-
+	bool _rotationInProgress, _movementInProgress, _cameraLookingDown;
+	Coroutine co;
 	Direction _direction;
 
 	#endregion
@@ -117,10 +118,6 @@ public class OldSchoolFPC : MonoBehaviour
 			}
 		}
 		//Light
-		if (_haveLight && !_lightOn)
-		{
-			StartCoroutine(ShowLight());
-		}
 		if (_haveLight && _lightOn)
 			_lightLifetime -= Time.deltaTime;
 	}
@@ -152,6 +149,17 @@ public class OldSchoolFPC : MonoBehaviour
 			_theCamera.transform.localEulerAngles = Vector3.zero;
 			_cameraLookingDown = false;
 		}
+	}
+
+	public IEnumerator TurnOnLight(float intensity, float range, float lifetime)
+	{
+		TurnOffLight();      //resets all light data
+		yield return null;
+		_lightIntensity = intensity;
+		_lightRange = range;
+		_lightLifetime = lifetime;
+		_haveLight = true;
+		co = StartCoroutine(ShowLight());
 	}
 	#endregion
 
@@ -303,18 +311,30 @@ public class OldSchoolFPC : MonoBehaviour
 
 	IEnumerator ShowLight()
 	{
+		_haveLight = false;
+
+		FlickeringLight flickeringLight= _heldLight.GetComponent<FlickeringLight>();
 		_lightOn = true;
 		_heldLight.SetActive(true);
-		_heldLight.GetComponent<FlickeringLight>()._baseIntensity = _lightIntensity;
+		flickeringLight._baseIntensity = _lightIntensity;
+		flickeringLight._range = _lightRange;
 		yield return new WaitWhile(() => _lightLifetime >= 0f);
 		TurnOffLight();
 	}
 
 	void TurnOffLight()
 	{
+		if (co != null)
+		{
+			StopCoroutine(co);   //stops a running light
+			co = null;
+		}
+
 		_haveLight = false;
 		_lightOn = false;
 		_lightLifetime = 0;
+		_lightIntensity = 1f;
+		_lightRange = 1;
 		_heldLight.SetActive(false);
 	}
 
@@ -329,17 +349,14 @@ public class OldSchoolFPC : MonoBehaviour
 		if (transform.eulerAngles.y >= 80 && transform.eulerAngles.y <= 100)
 		{
 			DungeonHUD.Instance.SetCompassNeedle(1);
-
 		}
 		if (transform.eulerAngles.y >= 170 && transform.eulerAngles.y <= 190)
 		{
 			DungeonHUD.Instance.SetCompassNeedle(2);
-
 		}
 		if (transform.eulerAngles.y >=-100 && transform.eulerAngles.y <= -80 || transform.eulerAngles.y >= 260 && transform.eulerAngles.y <= 280)
 		{
 			DungeonHUD.Instance.SetCompassNeedle(3);
-
 		}
 	}
 	#endregion

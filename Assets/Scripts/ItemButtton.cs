@@ -15,10 +15,6 @@ public class ItemButtton : MonoBehaviour
 
 	#region MonoBehaviour Methods
 
-	void Start()
-	{
-
-	}
 	#endregion
 
 	#region Public Methods

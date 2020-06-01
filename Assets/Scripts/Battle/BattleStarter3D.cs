@@ -14,6 +14,7 @@ public class BattleStarter3D : MonoBehaviour
 
 	[SerializeField] bool _shouldCompleteQuest;
 	[SerializeField] string _questToComplete;
+	[SerializeField] Sprite _battleBackground;
 
 	float _betweenBattleCounter;
 	bool _inArea;
@@ -83,7 +84,7 @@ public class BattleStarter3D : MonoBehaviour
 
 		yield return new WaitForSeconds(0.5f);
 
-		BattleManager.Instance.BattleStart(_potentialBattles[selectedBattle]._enemies, _canRetreat);
+		BattleManager.Instance.BattleStart(_potentialBattles[selectedBattle]._enemies, _canRetreat, _battleBackground);
 
 		if (_dactivateAfterStarting)
 			gameObject.SetActive(false);

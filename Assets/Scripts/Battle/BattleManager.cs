@@ -16,6 +16,8 @@ public class BattleManager : MonoBehaviour
 	[SerializeField] BattleChar[] _playerPrefabs;
 	[SerializeField] BattleChar[] _enemyPrefabs;
 	[SerializeField] string _gameOverScene;
+	[SerializeField] SpriteRenderer _battleBG;
+	[SerializeField] Sprite _BG;
 
 	public List<BattleChar> _activeBattlers = new List<BattleChar>();
 
@@ -75,7 +77,7 @@ public class BattleManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.T))
 		{
-			BattleStart(new string[] { "Eyeball" }, false);
+			BattleStart(new string[] { "Eyeball" }, false, _BG);
 		}
 
 		if (_battleActive)
@@ -104,12 +106,12 @@ public class BattleManager : MonoBehaviour
 
 	#region Public Methods
 
-	public void BattleStart(string[] enemiesToSpawn, bool canRetreat)
+	public void BattleStart(string[] enemiesToSpawn, bool canRetreat, Sprite BG)
 	{
 		if (!_battleActive)
 		{
 			_canRetreat = canRetreat;
-
+			_battleBG.sprite = BG;
 			_battleActive = true;
 			GameManager.Instance._battleActive = true;
 			_activeBattlers.Clear();

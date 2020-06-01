@@ -7333,7 +7333,7 @@ SpriteRenderer:
   m_SortingLayerID: 1021195465
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 16af20c94d442ab4c8bff6c6a7d1885f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfce6b7656338c244aefe65269df8585, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13023,6 +13023,7 @@ MonoBehaviour:
   - {fileID: 2016347223664328683, guid: 0de6791c07fb0ad4ea421ed857dcc832, type: 3}
   - {fileID: 42730844241773074, guid: ae01b789d174ab34db58d4b599aed2e2, type: 3}
   _gameOverScene: GameOver
+  _battleBG: {fileID: 4638990439949680431}
   _activeBattlers: []
   _currentTurn: 0
   _turnWaiting: 0
