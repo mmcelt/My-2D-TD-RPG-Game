@@ -112,7 +112,7 @@ MonoBehaviour:
   _weaponStr: 0
   _armorStr: 0
   _lightUIIndex: 3
-  _intensity: 20
+  _intensity: 10
   _lifetime: 3600
-  _range: 40
+  _range: 30
   _manaCost: 100

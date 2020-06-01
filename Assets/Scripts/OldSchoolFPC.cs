@@ -26,8 +26,9 @@ public class OldSchoolFPC : MonoBehaviour
 	Vector3 _origPos;
 	float _origRotY, _newPos;
 	bool _rotationInProgress, _movementInProgress, _cameraLookingDown;
-	Coroutine co;
 	Direction _direction;
+
+	FlickeringLight flickeringLight;
 
 	#endregion
 
@@ -53,6 +54,7 @@ public class OldSchoolFPC : MonoBehaviour
 		Cursor.lockState = CursorLockMode.None;
 		AudioManager.Instance.PlayMusic(_musicToPlay);
 		UpdateCompass();
+		flickeringLight = _heldLight.GetComponent<FlickeringLight>();
 	}
 
 	void Update()
@@ -151,15 +153,17 @@ public class OldSchoolFPC : MonoBehaviour
 		}
 	}
 
-	public IEnumerator TurnOnLight(float intensity, float range, float lifetime)
+	public void TurnOnLight(float intensity, float range, float lifetime)
 	{
 		TurnOffLight();      //resets all light data
-		yield return null;
 		_lightIntensity = intensity;
+		flickeringLight._baseIntensity = intensity;
 		_lightRange = range;
+		flickeringLight._range = range;
 		_lightLifetime = lifetime;
 		_haveLight = true;
-		co = StartCoroutine(ShowLight());
+		_lightOn = true;
+		StartCoroutine("ShowLight");
 	}
 	#endregion
 
@@ -311,30 +315,25 @@ public class OldSchoolFPC : MonoBehaviour
 
 	IEnumerator ShowLight()
 	{
-		_haveLight = false;
-
-		FlickeringLight flickeringLight= _heldLight.GetComponent<FlickeringLight>();
-		_lightOn = true;
 		_heldLight.SetActive(true);
 		flickeringLight._baseIntensity = _lightIntensity;
 		flickeringLight._range = _lightRange;
+		flickeringLight.TurnOn();
 		yield return new WaitWhile(() => _lightLifetime >= 0f);
 		TurnOffLight();
 	}
 
 	void TurnOffLight()
 	{
-		if (co != null)
-		{
-			StopCoroutine(co);   //stops a running light
-			co = null;
-		}
+		StopCoroutine("ShowLight");   //stops a running light
 
 		_haveLight = false;
 		_lightOn = false;
 		_lightLifetime = 0;
 		_lightIntensity = 1f;
+		
 		_lightRange = 1;
+		DungeonHUD.Instance.RemoveLightIcon();
 		_heldLight.SetActive(false);
 	}
 

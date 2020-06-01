@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class DungeonHUD : MonoBehaviour
 	[SerializeField] Image _compass;
 	[SerializeField] Sprite[] _needlePoints;
 	[Header("Light")]
-	[SerializeField] Image _lightHolder;
+	[SerializeField] Transform _lightHolder;
 	[SerializeField] Image[] _lightImages;
 
 	bool _panelOpen;
@@ -78,6 +79,27 @@ public class DungeonHUD : MonoBehaviour
 			case 3:  //W
 				_compass.sprite = _needlePoints[3];
 				break;
+		}
+	}
+
+	public void ShowLightIcon(int light)
+	{
+		if (_lightHolder.transform.childCount > 0)
+			RemoveLightIcon();
+		Image lightIcon = Instantiate(_lightImages[light]);
+		lightIcon.transform.SetParent(_lightHolder);
+		lightIcon.transform.localPosition = Vector3.zero;
+	}
+
+	public void RemoveLightIcon()
+	{
+		if(_lightHolder.transform.childCount > 0)
+		{
+			GameObject existingLight = _lightHolder.transform.GetChild(0).gameObject;
+			existingLight.SetActive(false);
+			existingLight.transform.SetParent(null, false);
+			Destroy(existingLight);
+			
 		}
 	}
 	#endregion

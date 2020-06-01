@@ -11,7 +11,7 @@ public class FlickeringLight : MonoBehaviour
 	public float _baseIntensity = 1f, _baseIncrementTime = 0.2f;
 	public float _range = 10f;
 	public Color _lightColor;
-	Light _theLight;
+	[SerializeField] Light _theLight;
 
 	#endregion
 
@@ -19,9 +19,7 @@ public class FlickeringLight : MonoBehaviour
 
 	void Start() 
 	{
-		_theLight = GetComponent<Light>();
-		TurnOn();
-		StartCoroutine(LightFlickerRoutine());
+		
 	}
 	#endregion
 
@@ -29,12 +27,15 @@ public class FlickeringLight : MonoBehaviour
 
 	public void TurnOn()
 	{
+		TurnOff();
 		_theLight.enabled = true;
+		StartCoroutine("LightFlickerRoutine");
 	}
 
 	public void TurnOff()
 	{
 		_theLight.enabled = false;
+		StopCoroutine("LightFlickerRoutine");
 	}
 
 	#endregion
@@ -44,9 +45,10 @@ public class FlickeringLight : MonoBehaviour
 	IEnumerator LightFlickerRoutine()
 	{
 		_theLight.color = _lightColor;
-		_theLight.intensity = Random.Range(_baseIntensity * 0.7f, _baseIntensity * 1.3f);
+		_theLight.intensity = Random.Range(_baseIntensity * 0.8f, _baseIntensity * 1.2f);
+		_theLight.range = _range;
 		yield return new WaitForSeconds(Random.Range(_baseIncrementTime * 0.7f, _baseIncrementTime * 1.3f));
-		StartCoroutine(LightFlickerRoutine());
+		StartCoroutine("LightFlickerRoutine");
 	}
 	#endregion
 }

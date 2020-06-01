@@ -109,7 +109,8 @@ public class Item : MonoBehaviour
 		{
 			if (GameManager.Instance._inDungeon)
 			{
-				StartCoroutine(OldSchoolFPC.Instance.TurnOnLight(_intensity, _range, _lifetime));
+				OldSchoolFPC.Instance.TurnOnLight(_intensity, _range, _lifetime);
+				DungeonHUD.Instance.ShowLightIcon(_lightUIIndex);
 			}
 		}
 		//remove the item from the inventory...
