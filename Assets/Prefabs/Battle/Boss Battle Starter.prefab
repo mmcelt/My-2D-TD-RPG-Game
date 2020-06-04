@@ -125,6 +125,7 @@ MonoBehaviour:
   - _enemies:
     - Dragon
     _rewardXP: 2000
+    _rewardGold: 0
     _rewardItems:
     - Mana Potion
     - Iron Sword
@@ -136,3 +137,4 @@ MonoBehaviour:
   _timeBetweenBattles: 10
   _shouldCompleteQuest: 0
   _questToComplete: 
+  _battleBackground: {fileID: 0}

@@ -101,6 +101,8 @@ public class BattleManager : MonoBehaviour
 			NextTurn();
 		}
 
+		if (Input.GetKeyDown(KeyCode.B))
+			StartCoroutine(AnimatedAttackRoutine(_activeBattlers[_currentTurn].GetComponent<Animator>()));
 	}
 	#endregion
 
@@ -232,7 +234,15 @@ public class BattleManager : MonoBehaviour
 				movePower = _moveList[i]._movePower;
 			}
 		}
-		Instantiate(_enemyAttackFX, _activeBattlers[_currentTurn].transform.position, Quaternion.identity);
+		if (_activeBattlers[_currentTurn]._isAnimated)
+		{
+			Animator animator = _activeBattlers[_currentTurn].GetComponent<Animator>();
+			StartCoroutine(AnimatedAttackRoutine(animator));
+		}
+		else
+		{
+			Instantiate(_enemyAttackFX, _activeBattlers[_currentTurn].transform.position, Quaternion.identity);
+		}
 		DealDamage(selectedTarget, movePower);
 	}
 
@@ -487,6 +497,17 @@ public class BattleManager : MonoBehaviour
 
 		return marker;
 	}
+
+	IEnumerator AnimatedAttackRoutine(Animator animator)
+	{
+		animator.SetInteger("State", 1);
+		animator.SetBool("Action", true);
+		animator.SetTrigger("Attack");
+		yield return new WaitForSeconds(0.3f);
+		animator.SetBool("Action", false);
+		//animator.SetBool("Action", true);
+	}
+
 	void UpdateBattle()
 	{
 		bool allEnemiesDead = true;

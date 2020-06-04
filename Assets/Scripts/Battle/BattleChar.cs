@@ -12,7 +12,7 @@ public class BattleChar : MonoBehaviour
 	public string _charName;
 	public int _currentHP, _maxHP, _currentMP, _maxMP, _STR, _DEF, _wpnPwr, _armPwr;
 	public string _equippedWpn, _equippedArm;
-	public bool _hasDied;
+	public bool _hasDied, _isAnimated;
 
 	public SpriteRenderer _theSprite, _markerSprite;
 	public Sprite _deadSprite, _aliveSprite;
@@ -23,11 +23,6 @@ public class BattleChar : MonoBehaviour
 	#endregion
 
 	#region MonoBehaviour Methods
-
-	void Start() 
-	{
-		
-	}
 
 	void Update()
 	{

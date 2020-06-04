@@ -12328,6 +12328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
         type: 3}
+      propertyPath: _potentialBattles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
       propertyPath: _activateOnStay
       value: 0
       objectReference: {fileID: 0}
@@ -12335,6 +12340,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _activateOnEnter
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._enemies.Array.data[0]
+      value: Advanced Slug
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[0]._enemies.Array.data[0]
+      value: Advanced Slug
       objectReference: {fileID: 0}
     - target: {fileID: 5601396367772701294, guid: a3cd0136dec472c4687d8ee96d3624c1,
         type: 3}
