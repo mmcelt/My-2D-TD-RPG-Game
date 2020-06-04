@@ -239,10 +239,10 @@ public class BattleManager : MonoBehaviour
 			Animator animator = _activeBattlers[_currentTurn].GetComponent<Animator>();
 			StartCoroutine(AnimatedAttackRoutine(animator));
 		}
-		else
-		{
+		//else
+		//{
 			Instantiate(_enemyAttackFX, _activeBattlers[_currentTurn].transform.position, Quaternion.identity);
-		}
+		//}
 		DealDamage(selectedTarget, movePower);
 	}
 
@@ -500,12 +500,11 @@ public class BattleManager : MonoBehaviour
 
 	IEnumerator AnimatedAttackRoutine(Animator animator)
 	{
-		animator.SetInteger("State", 1);
-		animator.SetBool("Action", true);
 		animator.SetTrigger("Attack");
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(0.5f);
 		animator.SetBool("Action", false);
-		//animator.SetBool("Action", true);
+		yield return new WaitForSeconds(0.2f);
+		animator.SetBool("Action", true);
 	}
 
 	void UpdateBattle()

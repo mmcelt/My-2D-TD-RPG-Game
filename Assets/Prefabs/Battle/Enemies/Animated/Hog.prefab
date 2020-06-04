@@ -512,6 +512,7 @@ MonoBehaviour:
   _equippedWpn: 
   _equippedArm: 
   _hasDied: 0
+  _isAnimated: 0
   _theSprite: {fileID: 0}
   _markerSprite: {fileID: 0}
   _deadSprite: {fileID: 0}
@@ -1004,6 +1005,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291419971016398393, guid: 95ce4eb972a9620488ba7e77d4dce4a7,
+        type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5378378854208678328, guid: 95ce4eb972a9620488ba7e77d4dce4a7,
         type: 3}

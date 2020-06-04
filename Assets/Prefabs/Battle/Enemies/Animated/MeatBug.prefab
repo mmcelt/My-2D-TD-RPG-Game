@@ -552,7 +552,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5877468312453255703}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: -0.5, y: 0.5, z: 1}
   m_Children:
@@ -680,6 +680,7 @@ MonoBehaviour:
   _equippedWpn: 
   _equippedArm: 
   _hasDied: 0
+  _isAnimated: 0
   _theSprite: {fileID: 0}
   _markerSprite: {fileID: 0}
   _deadSprite: {fileID: 0}
@@ -1182,6 +1183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291419971016398393, guid: 95ce4eb972a9620488ba7e77d4dce4a7,
+        type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5378378854208678328, guid: 95ce4eb972a9620488ba7e77d4dce4a7,
         type: 3}
