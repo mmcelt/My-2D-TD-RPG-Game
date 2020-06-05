@@ -11382,12 +11382,12 @@ PrefabInstance:
     - target: {fileID: 5526051855862086670, guid: f212a4089b540354c9ffb257fb74b9c2,
         type: 3}
       propertyPath: _areaToLoad
-      value: Countryside
+      value: World
       objectReference: {fileID: 0}
     - target: {fileID: 5526051855862086670, guid: f212a4089b540354c9ffb257fb74b9c2,
         type: 3}
       propertyPath: _areaTransitionName
-      value: Countryside-2
+      value: World-3
       objectReference: {fileID: 0}
     - target: {fileID: 5526051855862086671, guid: f212a4089b540354c9ffb257fb74b9c2,
         type: 3}
@@ -12307,6 +12307,12 @@ PrefabInstance:
       propertyPath: _questToComplete
       value: fight the dragon
       objectReference: {fileID: 0}
+    - target: {fileID: 177912137671478864, guid: 9b0617ef4bdc5514690e1de3155155b3,
+        type: 3}
+      propertyPath: _battleBackground
+      value: 
+      objectReference: {fileID: 21300000, guid: 16af20c94d442ab4c8bff6c6a7d1885f,
+        type: 3}
     - target: {fileID: 177912137671478865, guid: 9b0617ef4bdc5514690e1de3155155b3,
         type: 3}
       propertyPath: m_Name
@@ -12329,7 +12335,27 @@ PrefabInstance:
     - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
         type: 3}
       propertyPath: _potentialBattles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[1]._enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[1]._rewardItems.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._rewardItems.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
         type: 3}
@@ -12344,12 +12370,77 @@ PrefabInstance:
     - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
         type: 3}
       propertyPath: _potentialBattles.Array.data[2]._enemies.Array.data[0]
-      value: Advanced Slug
+      value: Bear
       objectReference: {fileID: 0}
     - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
         type: 3}
       propertyPath: _potentialBattles.Array.data[0]._enemies.Array.data[0]
       value: Advanced Slug
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[1]._enemies.Array.data[0]
+      value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[1]._enemies.Array.data[1]
+      value: Eyeball
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[1]._rewardXP
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[1]._rewardItems.Array.data[0]
+      value: Leather Armor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._enemies.Array.data[1]
+      value: Hog
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._rewardXP
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._rewardItems.Array.data[0]
+      value: Iron Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[0]._rewardXP
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._rewardItems.Array.data[1]
+      value: Mana Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _timeBetweenBattles
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[0]._rewardGold
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[1]._rewardGold
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601396367772701293, guid: a3cd0136dec472c4687d8ee96d3624c1,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[2]._rewardGold
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5601396367772701294, guid: a3cd0136dec472c4687d8ee96d3624c1,
         type: 3}

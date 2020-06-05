@@ -139,22 +139,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayer: 0
-  _movesAvailable: []
-  _charName: 
-  _currentHP: 0
-  _maxHP: 0
+  _movesAvailable:
+  - Slash
+  _charName: Slug
+  _currentHP: 80
+  _maxHP: 80
   _currentMP: 0
   _maxMP: 0
-  _STR: 0
-  _DEF: 0
+  _STR: 7
+  _DEF: 7
   _wpnPwr: 0
   _armPwr: 0
   _equippedWpn: 
   _equippedArm: 
   _hasDied: 0
   _isAnimated: 0
-  _theSprite: {fileID: 0}
-  _markerSprite: {fileID: 0}
+  _theSprite: {fileID: 1451660271335360737}
+  _markerSprite: {fileID: 4886083881993048891}
   _deadSprite: {fileID: 0}
   _aliveSprite: {fileID: 0}
   _fadeSpeed: 1
@@ -170,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2740607ede45145bcb3a5bfa42dc29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthbar: {fileID: 0}
-  _theChar: {fileID: 0}
+  _healthbar: {fileID: 6819819347367320980}
+  _theChar: {fileID: -252204426576794362}
 --- !u!1 &4021936541842863708
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +556,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2247589430194886938}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &4886083881993048891 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6701305438266542625, guid: 10e9b1735a0e04a4490167c3f1ba7d67,
+    type: 3}
+  m_PrefabInstance: {fileID: 2247589430194886938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8289337553893804973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -690,3 +697,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8289337553893804973}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6819819347367320980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3291419971016398393, guid: 95ce4eb972a9620488ba7e77d4dce4a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8289337553893804973}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

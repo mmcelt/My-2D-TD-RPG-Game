@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,7 +50,15 @@ public class Item : MonoBehaviour
 		{
 			if (_affectHP)
 			{
-				selectedChar._currentHP = Mathf.Min(selectedChar._currentHP + _amountToChange, selectedChar._maxHP);
+				if(selectedChar._isDead)
+				{
+					selectedChar._currentHP += 5;
+					selectedChar._isDead = false;
+				}
+				else
+				{
+					selectedChar._currentHP = Mathf.Min(selectedChar._currentHP + _amountToChange, selectedChar._maxHP);
+				}
 			}
 			if (_affectMP)
 			{
@@ -137,7 +146,11 @@ public class Item : MonoBehaviour
 		{
 			if (_affectHP)
 			{
-				selectedBattler._currentHP += _amountToChange;
+				if (selectedBattler._hasDied)
+					selectedBattler._currentHP += 5;
+				else
+					selectedBattler._currentHP += _amountToChange;
+
 				if (selectedBattler._currentHP > selectedBattler._maxHP)
 					selectedBattler._currentHP = selectedBattler._maxHP;
 			}
