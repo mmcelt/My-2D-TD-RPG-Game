@@ -12,6 +12,7 @@ public class OldSchoolFPC : MonoBehaviour
 	public enum Direction { N, E, S, W }
 
 	[SerializeField] GameObject _theCamera, _heldLight;
+	[SerializeField] Transform _rayGun;
 	float _lightIntensity, _lightRange, _lightLifetime;
 	public bool _lightOn;
 	[SerializeField] int _gridStep = 4;
@@ -51,7 +52,7 @@ public class OldSchoolFPC : MonoBehaviour
 		_canMove = true;
 		GameManager.Instance._inDungeon = true;
 		_origPos = transform.localPosition;
-		Cursor.lockState = CursorLockMode.None;
+		//Cursor.lockState = CursorLockMode.None;
 		AudioManager.Instance.PlayMusic(_musicToPlay);
 		UpdateCompass();
 		flickeringLight = _heldLight.GetComponent<FlickeringLight>();
@@ -86,7 +87,7 @@ public class OldSchoolFPC : MonoBehaviour
 		}
 
 		//Mouse Operations
-		if (Input.GetMouseButtonDown(0) && !GameManager.Instance._battleActive)
+		if (Input.GetMouseButtonDown(0) && !GameManager.Instance._battleActive && !GameManager.Instance._bootyPanelOpen)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
@@ -126,7 +127,7 @@ public class OldSchoolFPC : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (Physics.Raycast(transform.position, transform.forward, _rayLength, _dungeonWalls))
+		if (Physics.Raycast(_rayGun.position, transform.forward, _rayLength, _dungeonWalls))
 		{
 			_canMove = false;
 		}

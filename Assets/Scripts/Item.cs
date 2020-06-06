@@ -29,6 +29,8 @@ public class Item : MonoBehaviour
 	public float _range;
 	[Header("Spell Info")]
 	public int _manaCost;
+	public float _duration;
+	public bool _cancelOnDungeonExit;
 
 	#endregion
 
@@ -126,6 +128,8 @@ public class Item : MonoBehaviour
 		{
 			if (_itemName == "Magic Eye")
 				GetComponent<MagicEye>().FindAllHiddenDoors();
+			if (_itemName == "Magic Compass")
+				DungeonHUD.Instance.TurnOnCompass();
 
 			GameManager.Instance._playerStats[charToUseOn]._currentMP -= _manaCost;
 		}
@@ -135,6 +139,8 @@ public class Item : MonoBehaviour
 
 		GameMenu.Instance._useButton.interactable = false;
 		GameMenu.Instance._dropButton.interactable = false;
+		GameMenu.Instance.UpdateCharStatus(charToUseOn);
+
 		foreach (Button btn in GameMenu.Instance._selectCharacterButtons)
 			btn.enabled = true;
 	}

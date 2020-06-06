@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205954298311983583}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LockAxis002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205954298311958513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205954298311907173}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LockAxis001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1205954298311709363}
   - component: {fileID: 1205954298311709362}
   - component: {fileID: 1205954298311709360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,8 +121,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205954298311709361}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 10, y: 1, z: -11}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 10, y: 0.3, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1205954298311958513}
@@ -188,10 +188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bootyItems: []
-  _baseGold: 0
-  _goldRandomFactorMin: 0.5
+  _baseGold: 75
+  _goldRandomFactorMin: 0.75
   _goldRandomFactorMax: 1.5
-  _delayToShowPanel: 1.5
+  _delayToShowPanel: 2.5
 --- !u!1 &1205954298311749683
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205954298311918919}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: StrapAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205954298311938697}
   - component: {fileID: 1205954298323323623}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205954298311992693}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LockAxis003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205954298311911635}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MainAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ PrefabInstance:
     - target: {fileID: 9067020517628373809, guid: b2f9ce6554ca7fa4d9e7b1989ad660d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0000001
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 9067020517628373809, guid: b2f9ce6554ca7fa4d9e7b1989ad660d3,
         type: 3}
@@ -391,7 +391,7 @@ PrefabInstance:
     - target: {fileID: 9067020517628373809, guid: b2f9ce6554ca7fa4d9e7b1989ad660d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9067020517628373809, guid: b2f9ce6554ca7fa4d9e7b1989ad660d3,
         type: 3}
@@ -437,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraAdjuster
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067020517628373815, guid: b2f9ce6554ca7fa4d9e7b1989ad660d3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f9ce6554ca7fa4d9e7b1989ad660d3, type: 3}

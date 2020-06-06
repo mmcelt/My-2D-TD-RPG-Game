@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &653006391750699017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637168036513167844}
+  m_Layer: 0
+  m_Name: Ray Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &637168036513167844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653006391750699017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6396057965511808015}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5879139966496427200
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +60,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6396057965511808015}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &3092677529241815042
 Light:
@@ -43,7 +73,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9716981, g: 0.83756804, b: 0.2979263, a: 1}
+  m_Color: {r: 0.972, g: 0.838, b: 0.298, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -106,7 +136,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseIntensity: 1
-  _baseIncrementTime: 0.2
+  _baseIncrementTime: 0.15
+  _range: 10
+  _lightColor: {r: 0.9725491, g: 0.83921576, b: 0.29803923, a: 1}
+  _theLight: {fileID: 3092677529241815042}
 --- !u!1 &6396057964774152935
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6396057965511808015}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6396057964774152930
 Camera:
@@ -222,6 +255,7 @@ Transform:
   m_LocalPosition: {x: 2, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 637168036513167844}
   - {fileID: 6396057964774152932}
   - {fileID: 2901608390963632438}
   m_Father: {fileID: 0}
@@ -318,15 +352,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _theCamera: {fileID: 6396057964774152935}
   _heldLight: {fileID: 5879139966496427200}
-  _lightIntensity: 0
-  _lightLifetime: 0
+  _rayGun: {fileID: 637168036513167844}
+  _lightOn: 0
   _gridStep: 4
   _moveSpeed: 1
   _rotSpeed: 0.5
   _dungeonWalls:
     serializedVersion: 2
-    m_Bits: 256
-  _rayLength: 3.5
+    m_Bits: 768
+  _rayLength: 3
   _moveDelayTime: 0.1
   _canMove: 0
   _haveLight: 0

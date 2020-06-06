@@ -54,11 +54,22 @@ public class DungeonHUD : MonoBehaviour
 		{
 			_hudPanel.SetActive(false);
 			_panelOpen = false;
+			TurnOffCompass();
 		}
 	}
 	#endregion
 
 	#region Public Methods
+
+	public void TurnOnCompass()
+	{
+		_compass.enabled = true;
+	}
+
+	public void TurnOffCompass()
+	{
+		_compass.enabled = false;
+	}
 
 	public void SetCompassNeedle(int direction)
 	{
@@ -99,7 +110,6 @@ public class DungeonHUD : MonoBehaviour
 			existingLight.SetActive(false);
 			existingLight.transform.SetParent(null, false);
 			Destroy(existingLight);
-			
 		}
 	}
 	#endregion

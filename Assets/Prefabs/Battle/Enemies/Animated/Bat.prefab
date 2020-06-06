@@ -435,7 +435,7 @@ MonoBehaviour:
   _equippedArm: 
   _hasDied: 0
   _isAnimated: 0
-  _theSprite: {fileID: 0}
+  _theSprite: {fileID: 6237151325460485603}
   _markerSprite: {fileID: 4499387569927580858}
   _deadSprite: {fileID: 0}
   _aliveSprite: {fileID: 0}

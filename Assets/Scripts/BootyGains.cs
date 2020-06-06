@@ -49,6 +49,8 @@ public class BootyGains: MonoBehaviour
 			_itemsText.text += item + "\n";
 
 		yield return new WaitForSeconds(panelDelayTime);
+
+		GameManager.Instance._bootyPanelOpen = true;
 		_bootyPanel.SetActive(true);
 	}
 
@@ -61,6 +63,8 @@ public class BootyGains: MonoBehaviour
 
 		GameManager.Instance._currentGold += _goldFound;
 		_bootyPanel.SetActive(false);
+		GameManager.Instance._bootyPanelOpen = false;
+
 	}
 	#endregion
 

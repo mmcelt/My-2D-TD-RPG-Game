@@ -21,6 +21,7 @@ public class HiddenDoor : MonoBehaviour
 	{
 		_theWall.SetActive(false);
 		_theDoorway.SetActive(true);
+		GetComponent<BoxCollider>().enabled = false;
 	}
 	#endregion
 

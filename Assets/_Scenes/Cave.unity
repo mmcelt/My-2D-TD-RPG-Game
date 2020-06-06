@@ -12313,6 +12313,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 16af20c94d442ab4c8bff6c6a7d1885f,
         type: 3}
+    - target: {fileID: 177912137671478864, guid: 9b0617ef4bdc5514690e1de3155155b3,
+        type: 3}
+      propertyPath: _potentialBattles.Array.data[0]._rewardGold
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 177912137671478865, guid: 9b0617ef4bdc5514690e1de3155155b3,
         type: 3}
       propertyPath: m_Name

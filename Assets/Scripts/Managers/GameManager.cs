@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
 	[Header("Players")]
 	public CharSats[] _playerStats;
-	[HideInInspector] public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive, _inDungeon;
+	public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive, _inDungeon, _bootyPanelOpen;
 	[Header("Items")]
 	public string[] _itemsHeld;
 	public int[] _numberHeldOfItem;

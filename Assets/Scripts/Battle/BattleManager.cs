@@ -126,7 +126,7 @@ public class BattleManager : MonoBehaviour
 				//move the Battle Manager to the FPC camera position...
 				//transform.position = new Vector3(MyCharacterController.Instance.transform.position.x, MyCharacterController.Instance.transform.position.y + 0.55f, MyCharacterController.Instance.transform.position.z);
 				transform.position = Vector3.zero;
-				Cursor.lockState = CursorLockMode.None;
+				//Cursor.lockState = CursorLockMode.None;
 				//MyCharacterController.Instance._cursorLocked = false;
 			}
 			else
