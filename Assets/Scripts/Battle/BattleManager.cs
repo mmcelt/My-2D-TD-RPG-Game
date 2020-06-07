@@ -138,9 +138,10 @@ public class BattleManager : MonoBehaviour
 			_battleScene.SetActive(true);
 			AudioManager.Instance.PlayMusic(0);
 
+			//get the player stats from the GameManager at the start of the battle...
 			for (int i = 0; i < _playerPositions.Length; i++)
 			{
-				if (GameManager.Instance._playerStats[i].gameObject.activeSelf)
+				if (GameManager.Instance._playerStats[i].gameObject.activeInHierarchy)
 				{
 					foreach (BattleChar player in _playerPrefabs)
 					{
@@ -160,6 +161,9 @@ public class BattleManager : MonoBehaviour
 							_activeBattlers[i]._DEF = thePlayer._defense;
 							_activeBattlers[i]._wpnPwr = thePlayer._weaponPwr;
 							_activeBattlers[i]._armPwr = thePlayer._armorPwr;
+							_activeBattlers[i]._equippedWpn = thePlayer._equippedWpn;
+							_activeBattlers[i]._equippedArm = thePlayer._equippedArm;
+							_activeBattlers[i]._hasDied = thePlayer._isDead;
 						}
 					}
 				}

@@ -120,7 +120,11 @@ public class Item : MonoBehaviour
 		{
 			if (GameManager.Instance._inDungeon)
 			{
-				OldSchoolFPC.Instance.TurnOnLight(_intensity, _range, _lifetime);
+				if(_itemName== "Common Torch" || _itemName == "Greater Torch")
+					OldSchoolFPC.Instance.TurnOnLight("yellow", _intensity, _range, _lifetime);
+				else
+					OldSchoolFPC.Instance.TurnOnLight("blue", _intensity, _range, _lifetime);
+
 				DungeonHUD.Instance.ShowLightIcon(_lightUIIndex);
 			}
 		}

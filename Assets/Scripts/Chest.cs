@@ -11,7 +11,7 @@ public class Chest : MonoBehaviour
 	[SerializeField] float _infoPanelShowTime = 1f;
 	[Header("Cursed Chest")]
 	[SerializeField] bool _isCursed;
-	[SerializeField] float _curseInterval = 3f;
+	[SerializeField] float _curseInterval = 3f, _curseInfoPanelShowTime = 4f;
 
 	bool _open, _alreadyLooted;
 	Animator _theAnim;
@@ -103,7 +103,7 @@ public class Chest : MonoBehaviour
 		GameManager.Instance._curseInterval = _curseInterval;
 		GameMenu.Instance._infoText.text = "<color=red> This Chest Is Cursed!!</color> \n Your party is now Cursed until you take the antidote!!";
 		GameMenu.Instance._infoPanel.SetActive(true);
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(_curseInfoPanelShowTime);
 		GameMenu.Instance._infoPanel.SetActive(false);
 		GameMenu.Instance._infoText.text = "";
 	}

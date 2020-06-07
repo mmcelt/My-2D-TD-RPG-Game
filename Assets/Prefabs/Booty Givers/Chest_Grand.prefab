@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2678356844908575232}
   - component: {fileID: 2678356844911966752}
   - component: {fileID: 2678356844910999776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestHingeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2678356844908575234}
   - component: {fileID: 2678356844911966754}
   - component: {fileID: 2678356844910999778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestHingeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 2678356844908575236}
   - component: {fileID: 2678356844911966756}
   - component: {fileID: 2678356844910999780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 2678356844908575238}
   - component: {fileID: 2678356844911966758}
   - component: {fileID: 2678356844910999782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 2678356844908699802}
   - component: {fileID: 2678356844908699801}
   - component: {fileID: 2678356844908699800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chest_Grand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,6 +423,7 @@ MonoBehaviour:
   _infoPanelShowTime: 1
   _isCursed: 0
   _curseInterval: 3
+  _curseInfoPanelShowTime: 4
 --- !u!114 &2678356844908699800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,7 +452,7 @@ GameObject:
   - component: {fileID: 2678356844908575246}
   - component: {fileID: 2678356844911966766}
   - component: {fileID: 2678356844910999790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}

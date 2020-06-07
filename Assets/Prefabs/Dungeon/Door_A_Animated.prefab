@@ -226,4 +226,4 @@ MonoBehaviour:
   _doorIsOpen: 0
   _isLocked: 0
   _requiredKey: 
-  _infoPanelShowTime: 1
+  _infoPanelShowTime: 2

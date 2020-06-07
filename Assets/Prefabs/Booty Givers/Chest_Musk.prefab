@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2041755603032891089}
   - component: {fileID: 2041755603029991155}
   - component: {fileID: 2041755603031120947}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 2041755603032891091}
   - component: {fileID: 2041755603029991165}
   - component: {fileID: 2041755603031120957}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2041755603032891097}
   - component: {fileID: 2041755603029991163}
   - component: {fileID: 2041755603031120955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 2041755603033375486}
   - component: {fileID: 2041755603033375480}
   - component: {fileID: 2041755603033375482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chest_Musk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,6 +344,7 @@ MonoBehaviour:
   _infoPanelShowTime: 1
   _isCursed: 0
   _curseInterval: 3
+  _curseInfoPanelShowTime: 4
 --- !u!114 &2041755603033375482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +373,7 @@ GameObject:
   - component: {fileID: 2041755603032891101}
   - component: {fileID: 2041755603029991167}
   - component: {fileID: 2041755603031120959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestHingeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +452,7 @@ GameObject:
   - component: {fileID: 2041755603032891103}
   - component: {fileID: 2041755603029991161}
   - component: {fileID: 2041755603031120953}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChestHingeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

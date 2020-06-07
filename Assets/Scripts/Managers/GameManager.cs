@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
 		{
 			PlayerController.Instance.gameObject.SetActive(false);
 		}
+		else
+		{
+			PlayerController.Instance.gameObject.SetActive(true);
+		}
 
 		if(_gameMenuOpen || _dialogActive || _fadingBetweenAreas || _shopOpen || _battleActive)
 		{
@@ -74,9 +78,9 @@ public class GameManager : MonoBehaviour
 		//curse handler
 		if (_isCursed && _curseCounter <= 0)
 		{
-			foreach (CharSats player in GameManager.Instance._playerStats)
+			foreach (CharSats player in _playerStats)
 			{
-				if (player.gameObject.activeSelf)
+				if (player.gameObject.activeInHierarchy)
 				{
 					player._currentHP -= 1;
 					GameMenu.Instance.UpdateMainStats();

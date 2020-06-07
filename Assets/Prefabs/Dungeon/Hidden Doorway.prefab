@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5152360726026527544}
   - component: {fileID: 5152360726026527943}
   - component: {fileID: 141786115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hidden Doorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 5220947112211892385}
   - component: {fileID: 5220947112210762337}
   - component: {fileID: 8201001901017661499}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Dank_Double_A_snaps010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,6 +234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 798833364611369091, guid: 564e1856d6f157d428febc1a806a706b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 798833364611369119, guid: 564e1856d6f157d428febc1a806a706b,
         type: 3}

@@ -11,7 +11,7 @@ public class OldSchoolFPC : MonoBehaviour
 
 	public enum Direction { N, E, S, W }
 
-	[SerializeField] GameObject _theCamera, _heldLight;
+	[SerializeField] GameObject _theCamera, _heldLightYellow, _heldLightBlue;
 	[SerializeField] Transform _rayGun;
 	float _lightIntensity, _lightRange, _lightLifetime;
 	public bool _lightOn;
@@ -21,7 +21,7 @@ public class OldSchoolFPC : MonoBehaviour
 	[SerializeField] LayerMask _dungeonWalls;
 	[SerializeField] float _rayLength = 2f;
 	[SerializeField] float _moveDelayTime = 0.1f;
-	public bool _canMove, _haveLight;
+	public bool _canMove, _pathBlocked, _haveLight;
 	public int _musicToPlay;
 
 	Vector3 _origPos;
@@ -29,7 +29,7 @@ public class OldSchoolFPC : MonoBehaviour
 	bool _rotationInProgress, _movementInProgress, _cameraLookingDown;
 	Direction _direction;
 
-	FlickeringLight flickeringLight;
+	FlickeringLight yellowFlickeringLight, blueFlickeringLight;
 
 	#endregion
 
@@ -55,12 +55,13 @@ public class OldSchoolFPC : MonoBehaviour
 		//Cursor.lockState = CursorLockMode.None;
 		AudioManager.Instance.PlayMusic(_musicToPlay);
 		UpdateCompass();
-		flickeringLight = _heldLight.GetComponent<FlickeringLight>();
+		yellowFlickeringLight = _heldLightYellow.GetComponent<FlickeringLight>();
+		blueFlickeringLight = _heldLightBlue.GetComponent<FlickeringLight>();
 	}
 
 	void Update()
 	{
-		if (_canMove && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
+		if (_canMove && !_pathBlocked && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
 		{
 			float translation = _gridStep * _moveSpeed;
 			transform.Translate(0f, 0f, translation);
@@ -127,13 +128,17 @@ public class OldSchoolFPC : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		Debug.DrawRay(_rayGun.position, transform.forward * _rayLength, Color.red);
+
 		if (Physics.Raycast(_rayGun.position, transform.forward, _rayLength, _dungeonWalls))
 		{
-			_canMove = false;
+			_pathBlocked = true;
+
+			Debug.Log("Hit something I care about");
 		}
 		else
 		{
-			_canMove = true;
+			_pathBlocked = false;
 		}
 	}
 	#endregion
@@ -154,17 +159,27 @@ public class OldSchoolFPC : MonoBehaviour
 		}
 	}
 
-	public void TurnOnLight(float intensity, float range, float lifetime)
+	public void TurnOnLight(string light, float intensity, float range, float lifetime)
 	{
-		TurnOffLight();      //resets all light data
-		_lightIntensity = intensity;
-		flickeringLight._baseIntensity = intensity;
-		_lightRange = range;
-		flickeringLight._range = range;
+		TurnOffLights();      //resets all light data
+		if (light == "yellow")
+		{
+			_heldLightYellow.GetComponent<Light>().intensity = intensity;
+			yellowFlickeringLight._baseIntensity = intensity;
+			_heldLightYellow.GetComponent<Light>().range = range;
+			yellowFlickeringLight._range = range;
+		}
+		else
+		{
+			_heldLightBlue.GetComponent<Light>().intensity = intensity;
+			blueFlickeringLight._baseIntensity = intensity;
+			_heldLightBlue.GetComponent<Light>().range = range;
+			blueFlickeringLight._range = range;
+		}
 		_lightLifetime = lifetime;
 		_haveLight = true;
 		_lightOn = true;
-		StartCoroutine("ShowLight");
+		StartCoroutine("ShowLight", light);
 	}
 	#endregion
 
@@ -314,17 +329,25 @@ public class OldSchoolFPC : MonoBehaviour
 		UpdateCompass();
 	}
 
-	IEnumerator ShowLight()
+	IEnumerator ShowLight(string light)
 	{
-		_heldLight.SetActive(true);
-		flickeringLight._baseIntensity = _lightIntensity;
-		flickeringLight._range = _lightRange;
-		flickeringLight.TurnOn();
+		if (light == "yellow")
+		{
+			_heldLightYellow.SetActive(true);
+			yellowFlickeringLight.TurnOn();
+		}
+		else
+		{
+			_heldLightBlue.SetActive(true);
+			blueFlickeringLight.TurnOn();
+		}
+		//yellowFlickeringLight._baseIntensity = _lightIntensity;
+		//yellowFlickeringLight._range = _lightRange;
 		yield return new WaitWhile(() => _lightLifetime >= 0f);
-		TurnOffLight();
+		TurnOffLights();
 	}
 
-	void TurnOffLight()
+	void TurnOffLights()
 	{
 		StopCoroutine("ShowLight");   //stops a running light
 
@@ -335,7 +358,8 @@ public class OldSchoolFPC : MonoBehaviour
 		
 		_lightRange = 1;
 		DungeonHUD.Instance.RemoveLightIcon();
-		_heldLight.SetActive(false);
+		_heldLightYellow.SetActive(false);
+		_heldLightBlue.SetActive(false);
 	}
 
 	void UpdateCompass()

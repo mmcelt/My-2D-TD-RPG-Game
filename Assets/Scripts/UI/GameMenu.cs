@@ -88,7 +88,7 @@ public class GameMenu : MonoBehaviour
 
 		for(int i=0; i<_playerStats.Length; i++)
 		{
-			if (_playerStats[i].gameObject.activeSelf)
+			if (_playerStats[i].gameObject.activeInHierarchy)
 			{
 				_charStatPanels[i].SetActive(true);
 
