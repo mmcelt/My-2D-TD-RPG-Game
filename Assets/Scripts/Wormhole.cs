@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CameraFading;
 
 public class Wormhole: MonoBehaviour
 {
 	#region Fields
 
 	[SerializeField] Transform _destination;
+	[SerializeField] float _fadingTime;
 
 	#endregion
 
@@ -16,7 +18,13 @@ public class Wormhole: MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			OldSchoolFPC.Instance.transform.position = _destination.position;
+			//CameraFade.Out();
+
+			CameraFade.Out(() =>
+			{
+				OldSchoolFPC.Instance.transform.position = _destination.position;
+				CameraFade.In(_fadingTime);
+			}, _fadingTime);
 		}
 	}
 	#endregion

@@ -12,6 +12,7 @@ public class Chest : MonoBehaviour
 	[Header("Cursed Chest")]
 	[SerializeField] bool _isCursed;
 	[SerializeField] float _curseInterval = 3f, _curseInfoPanelShowTime = 4f;
+	[SerializeField] AudioClip _thisIsCursed;
 
 	bool _open, _alreadyLooted;
 	Animator _theAnim;
@@ -100,12 +101,15 @@ public class Chest : MonoBehaviour
 	IEnumerator ShowCursedChestPanelRoutine()
 	{
 		GameManager.Instance._isCursed = true;
+		AudioManager.Instance.Stopmusic();
+		GetComponent<AudioSource>().PlayOneShot(_thisIsCursed, 0.5f);
 		GameManager.Instance._curseInterval = _curseInterval;
 		GameMenu.Instance._infoText.text = "<color=red> This Chest Is Cursed!!</color> \n Your party is now Cursed until you take the antidote!!";
 		GameMenu.Instance._infoPanel.SetActive(true);
 		yield return new WaitForSeconds(_curseInfoPanelShowTime);
 		GameMenu.Instance._infoPanel.SetActive(false);
 		GameMenu.Instance._infoText.text = "";
+		AudioManager.Instance.PlayMusic(OldSchoolFPC.Instance._musicToPlay);
 	}
 	#endregion
 }
