@@ -6,6 +6,15 @@ public class CharSats : MonoBehaviour
 {
 	#region Fields
 
+	public enum CLASS
+	{
+		NONSPECIALIST,
+		WARRIOR,
+		MAGE
+	}
+
+	public CLASS _playerClass;
+
 	public Sprite _charImage;
 	public string _charName;
 	public int _charLevel = 1;

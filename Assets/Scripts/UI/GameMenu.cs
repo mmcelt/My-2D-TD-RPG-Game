@@ -279,6 +279,15 @@ public class GameMenu : MonoBehaviour
 	{
 		AudioManager.Instance.PlaySFX(4);
 	}
+
+	public IEnumerator ShowInfoPanel(string msg,float length)
+	{
+		_infoText.text = msg;
+		_infoPanel.SetActive(true);
+		yield return new WaitForSeconds(length);
+		_infoText.text = "";
+		_infoPanel.SetActive(false);
+	}
 #endregion
 
 	#region Private Methods

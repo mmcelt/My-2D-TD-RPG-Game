@@ -21,16 +21,15 @@ public class ItemButtton : MonoBehaviour
 
 	public void OnItemButtonClicked()
 	{
-		if (GameMenu.Instance._theMenu.activeSelf)
+		if (GameMenu.Instance._theMenu.activeInHierarchy)
 		{
 			if (GameManager.Instance._itemsHeld[_buttonValue] != "")
 			{
 				GameMenu.Instance.SelectItem(GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue]));
-				//I ADDED THIS TO USE THE _SELECTEDiTEM FIELD IN GAMEMENU...
-				//GameMenu.Instance._selectedItem = GameManager.Instance._itemsHeld[_buttonValue];
+
 				if (GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue])._isSpell)
 				{
-					if (CheckForSufficientManaForSpells())
+					if (CheckForValidUser() && CheckForSufficientManaForSpells())
 					{
 						GameMenu.Instance._useButton.interactable = true;
 						GameMenu.Instance._dropButton.interactable = true;
@@ -39,9 +38,10 @@ public class ItemButtton : MonoBehaviour
 					{
 						GameMenu.Instance._useButton.interactable = false;
 						GameMenu.Instance._dropButton.interactable = false;
+						StartCoroutine(GameMenu.Instance.ShowInfoPanel("Not enough personal Mana!", 1.5f));
 					}
 				}
-				else
+				else if (CheckForValidUser())
 				{
 					GameMenu.Instance._useButton.interactable = true;
 					GameMenu.Instance._dropButton.interactable = true;
@@ -112,9 +112,6 @@ public class ItemButtton : MonoBehaviour
 	{
 		bool requiredMana = false;
 
-		//foreach (Button btn in GameMenu.Instance._selectCharacterButtons)
-		//	btn.enabled = true;
-
 		//check if a player has enough mana to cast the spell...
 		for (int i = 0; i < GameManager.Instance._playerStats.Length; i++)
 		{
@@ -131,5 +128,46 @@ public class ItemButtton : MonoBehaviour
 
 		return requiredMana;
 	}
-	#endregion
+
+	bool CheckForValidUser()
+	{
+		bool validUser = false;
+
+		//check if a player can use the item...
+		for (int i = 0; i < GameManager.Instance._playerStats.Length; i++)
+		{
+			//if (GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue])._forAverage)
+			//{
+			//	GameMenu.Instance._selectCharacterButtons[i].enabled = true;
+			//	validUser = true;
+			//}
+			if(GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue])._forWarrior)
+			{
+				if(GameManager.Instance._playerStats[i]._playerClass == CharSats.CLASS.WARRIOR)
+				{
+					GameMenu.Instance._selectCharacterButtons[i].enabled = true;
+					validUser = true;
+				}
+				else
+				{
+					GameMenu.Instance._selectCharacterButtons[i].enabled = false;
+				}
+			}
+			else if (GameManager.Instance.GetItemDetails(GameManager.Instance._itemsHeld[_buttonValue])._forMage)
+			{
+				if (GameManager.Instance._playerStats[i]._playerClass == CharSats.CLASS.MAGE)
+				{
+					GameMenu.Instance._selectCharacterButtons[i].enabled = true;
+					validUser = true;
+				}
+				else
+				{
+					GameMenu.Instance._selectCharacterButtons[i].enabled = false;
+				}
+			}
+		}
+
+		return validUser;
+	}
+		#endregion
 }

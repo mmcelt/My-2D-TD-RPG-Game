@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isItem: 0
+  _isLight: 0
+  _isSpell: 0
   _isWeapon: 0
   _isArmor: 0
   _itemSprite: {fileID: 21300718, guid: 0db71ae6e25060d418f691db8f45f1d4, type: 3}
@@ -106,5 +108,16 @@ MonoBehaviour:
   _affectMP: 0
   _affectSTR: 0
   _affectDEF: 0
+  _stopCurse: 0
   _weaponStr: 0
   _armorStr: 0
+  _forAverage: 1
+  _forWarrior: 1
+  _forMage: 1
+  _lightUIIndex: 0
+  _intensity: 0
+  _lifetime: 0
+  _range: 0
+  _manaCost: 0
+  _duration: 0
+  _cancelOnDungeonExit: 0

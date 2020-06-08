@@ -22,6 +22,10 @@ public class Item : MonoBehaviour
 	public int _amountToChange;
 	public bool _affectHP, _affectMP, _affectSTR, _affectDEF, _stopCurse;
 	public int _weaponStr, _armorStr;
+	//public bool _forAverage = true;
+	public bool _forWarrior = true;
+	public bool _forMage = true;
+
 	[Header("Light Info")]
 	public int _lightUIIndex;
 	public float _intensity;

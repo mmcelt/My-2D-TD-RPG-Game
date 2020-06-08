@@ -112,11 +112,16 @@ MonoBehaviour:
   _stopCurse: 0
   _weaponStr: 0
   _armorStr: 0
+  _forAverage: 0
+  _forWarrior: 0
+  _forMage: 1
   _lightUIIndex: 0
   _intensity: 10
   _lifetime: 5000
   _range: 0
   _manaCost: 100
+  _duration: 0
+  _cancelOnDungeonExit: 0
 --- !u!114 &-1709976419151154883
 MonoBehaviour:
   m_ObjectHideFlags: 0
