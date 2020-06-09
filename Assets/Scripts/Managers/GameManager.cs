@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
 	[Header("Players")]
 	public CharSats[] _playerStats;
-	public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive, _inDungeon, _bootyPanelOpen;
+	public bool _gameMenuOpen, _dialogActive, _fadingBetweenAreas, _shopOpen, _battleActive, _inDungeon, _bootyPanelOpen, _interactingWithObject;
 	[Header("Items")]
 	public string[] _itemsHeld;
 	public int[] _numberHeldOfItem;
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 			PlayerController.Instance.gameObject.SetActive(true);
 		}
 
-		if(_gameMenuOpen || _dialogActive || _fadingBetweenAreas || _shopOpen || _battleActive)
+		if(_gameMenuOpen || _dialogActive || _fadingBetweenAreas || _shopOpen || _battleActive || _bootyPanelOpen || _interactingWithObject)
 		{
 			if (!_inDungeon)
 				PlayerController.Instance._canMove = false;
@@ -329,6 +329,33 @@ public class GameManager : MonoBehaviour
 			_numberHeldOfItem[i] = PlayerPrefs.GetInt("ItemAmount_" + i);
 		}
 	}
+
+	//public bool CheckForPlayerOutOfSyncWithGrid()
+	//{
+	//	bool ok = true;
+
+	//	if (!_inDungeon)
+	//	{
+	//		for (int x = 2; x <= 46; x += 4)
+	//		{
+	//			if (OldSchoolFPC.Instance.transform.position.x == x)
+	//			{
+	//				ok = true;
+	//				break;
+	//			}
+	//		}
+	//		for (int z = -2; z <= 42; z += 4)
+	//		{
+	//			if (OldSchoolFPC.Instance.transform.position.z == z)
+	//			{
+	//				ok = true;
+	//				break;
+	//			}
+	//		}
+	//	}
+
+	//	return ok;
+	//}
 	#endregion
 
 	#region Private Methods

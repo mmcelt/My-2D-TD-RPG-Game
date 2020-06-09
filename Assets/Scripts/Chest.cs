@@ -71,6 +71,7 @@ public class Chest : MonoBehaviour
 
 	void OpenChest()
 	{
+		GameManager.Instance._interactingWithObject = true;
 		_theAnim.SetTrigger("openChest");
 		_open = true;
 
@@ -87,15 +88,18 @@ public class Chest : MonoBehaviour
 	{
 		_theAnim.SetTrigger("closeChest");
 		_open = false;
+		GameManager.Instance._interactingWithObject = false;
 	}
 
 	IEnumerator ShowInfoPanelRoutine()
 	{
+		GameManager.Instance._interactingWithObject = true;
 		GameMenu.Instance._infoText.text = "You don't have the required key: " + _requiredKey;
 		GameMenu.Instance._infoPanel.SetActive(true);
 		yield return new WaitForSeconds(_infoPanelShowTime);
 		GameMenu.Instance._infoPanel.SetActive(false);
 		GameMenu.Instance._infoText.text = "";
+		GameManager.Instance._interactingWithObject = false;
 	}
 
 	IEnumerator ShowCursedChestPanelRoutine()
@@ -110,6 +114,7 @@ public class Chest : MonoBehaviour
 		GameMenu.Instance._infoPanel.SetActive(false);
 		GameMenu.Instance._infoText.text = "";
 		AudioManager.Instance.PlayMusic(OldSchoolFPC.Instance._musicToPlay);
+		GameManager.Instance._interactingWithObject = false;
 	}
 	#endregion
 }

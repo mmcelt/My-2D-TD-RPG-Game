@@ -39,6 +39,8 @@ public class BootyGains: MonoBehaviour
 
 	public IEnumerator OpenBootyScreenRoutine(int gold, string[] items, float panelDelayTime)
 	{
+		GameManager.Instance._bootyPanelOpen = true;
+
 		_goldFound = gold;
 		_bootyItems = items;
 
@@ -50,7 +52,6 @@ public class BootyGains: MonoBehaviour
 
 		yield return new WaitForSeconds(panelDelayTime);
 
-		GameManager.Instance._bootyPanelOpen = true;
 		_bootyPanel.SetActive(true);
 	}
 

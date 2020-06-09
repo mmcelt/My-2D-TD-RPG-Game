@@ -123,6 +123,7 @@ MonoBehaviour:
   _battleActive: 0
   _inDungeon: 0
   _bootyPanelOpen: 0
+  _interactingWithObject: 0
   _itemsHeld:
   - 
   - 
@@ -184,6 +185,8 @@ MonoBehaviour:
   - {fileID: 2022360070296927412, guid: 36e08c03a2507f9448fec556c812eb88, type: 3}
   - {fileID: 3293915158685136823, guid: 4a843eaba2cb3f945b165fea9f8f2b4b, type: 3}
   - {fileID: 3625956151223761334, guid: 93ef738b78c37d74481fb662028823e3, type: 3}
+  - {fileID: 941327637656454145, guid: 835373c14f5771e4aa3b6639248c0a3a, type: 3}
+  - {fileID: 2777600570843148617, guid: f6816210820d7ff41ab3f67eb5c0dfb2, type: 3}
   _currentGold: 100
   _isContinuedGame: 0
   _isCursed: 0

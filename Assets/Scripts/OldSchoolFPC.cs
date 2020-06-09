@@ -61,10 +61,17 @@ public class OldSchoolFPC : MonoBehaviour
 
 	void Update()
 	{
-		if (_canMove && !_pathBlocked && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
+		if (_canMove && !_rotationInProgress && !_pathBlocked && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
 		{
-			float translation = _gridStep * _moveSpeed;
-			transform.Translate(0f, 0f, translation);
+			_canMove = false;
+			_origPos = transform.position;
+
+			StartCoroutine(MoveRoutine());
+			//if (!GameManager.Instance.CheckForPlayerOutOfSyncWithGrid())
+			//{
+			//	Debug.LogError("PLAYER OUT OF POSITION! " + transform.position);
+			//	transform.position = _origPos;
+			//}
 		}
 		//do an about-face...
 		if (!_rotationInProgress && Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -217,7 +224,7 @@ public class OldSchoolFPC : MonoBehaviour
 				//{
 				//	transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, Mathf.Round(_newPos));
 				//}
-				StartCoroutine(Move0Routine());
+				//StartCoroutine(Move0Routine());
 				//_movementInProgress = false;
 
 				break;
@@ -231,7 +238,7 @@ public class OldSchoolFPC : MonoBehaviour
 				//	transform.localPosition = new Vector3(Mathf.Round(_newPos), transform.localPosition.y, transform.localPosition.z);
 				//	_movementInProgress = false;
 				//}
-				StartCoroutine(Move90Routine());
+				//StartCoroutine(Move90Routine());
 				//_movementInProgress = false;
 				break;
 
@@ -244,7 +251,7 @@ public class OldSchoolFPC : MonoBehaviour
 				//	transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, Mathf.Round(_newPos));
 				//	_movementInProgress = false;
 				//}
-				StartCoroutine(Move180Routine());
+				//StartCoroutine(Move180Routine());
 				//_movementInProgress = false;
 				break;
 
@@ -258,56 +265,21 @@ public class OldSchoolFPC : MonoBehaviour
 				//	transform.localPosition = new Vector3(Mathf.Round(_newPos), transform.localPosition.y, transform.localPosition.z);
 				//	_movementInProgress = false;
 				//}
-				StartCoroutine(Move270Routine());
+				//StartCoroutine(Move270Routine());
 				//_movementInProgress = false;
 				break;
 		}
 		//_movementInProgress = false;
 	}
 
-	IEnumerator Move0Routine()
+	IEnumerator MoveRoutine()
 	{
-		for (int i = 1; i <= _gridStep; i++)
-		{
-			transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
-			yield return new WaitForSeconds(_moveDelayTime);
-		}
-		_movementInProgress = false;
-		StopAllCoroutines();
+		float translation = _gridStep * _moveSpeed;
+		transform.Translate(0f, 0f, translation);
+		yield return null;
+		_canMove = true;
 	}
 
-	IEnumerator Move90Routine()
-	{
-		for (int i = 1; i <= _gridStep; i++)
-		{
-			transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
-			yield return new WaitForSeconds(_moveDelayTime);
-		}
-		_movementInProgress = false;
-		StopAllCoroutines();
-	}
-
-	IEnumerator Move180Routine()
-	{
-		for (int i = 1; i <= _gridStep; i++)
-		{
-			transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
-			yield return new WaitForSeconds(_moveDelayTime);
-		}
-		_movementInProgress = false;
-		StopAllCoroutines();
-	}
-
-	IEnumerator Move270Routine()
-	{
-		for (int i = 1; i <= _gridStep; i++)
-		{
-			transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
-			yield return new WaitForSeconds(_moveDelayTime);
-		}
-		_movementInProgress = false;
-		StopAllCoroutines();
-	}
 
 	IEnumerator RotatePlayer(Vector3 byAngle)
 	{
