@@ -45,9 +45,7 @@ public class DungeonExit : MonoBehaviour
 
 			if (_exiting3D)
 			{
-				GameManager.Instance._inDungeon = false;
-				//Cursor.lockState = CursorLockMode.None;
-				PlayerController.Instance.gameObject.SetActive(true);
+				StartCoroutine(ExitDungeonRoutine());
 			}
 
 			_shouldLoadAfterFade = true;
@@ -63,6 +61,12 @@ public class DungeonExit : MonoBehaviour
 
 	#region Private Methods
 
-
+	IEnumerator ExitDungeonRoutine()
+	{
+		GameManager.Instance._inDungeon = false;
+		yield return new WaitForSeconds(_waitToLoad - 0.05f);
+		PlayerController.Instance.gameObject.SetActive(true);
+		OldSchoolFPC.Instance.gameObject.SetActive(false);
+	}
 	#endregion
 }

@@ -292,6 +292,7 @@ public class GameManager : MonoBehaviour
 
 			PlayerController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("Player_Position_x"), PlayerPrefs.GetFloat("Player_Position_y"), PlayerPrefs.GetFloat("Player_Position_z"));
 			PlayerController.Instance.gameObject.SetActive(false);
+			OldSchoolFPC.Instance.gameObject.SetActive(true);
 		}
 		else
 			PlayerController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("Player_Position_x"), PlayerPrefs.GetFloat("Player_Position_y"), PlayerPrefs.GetFloat("Player_Position_z"));

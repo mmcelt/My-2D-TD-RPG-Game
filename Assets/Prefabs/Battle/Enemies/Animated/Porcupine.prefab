@@ -306,7 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayer: 0
-  _movesAvailable: []
+  _movesAvailable:
+  - Slash
   _charName: Porcupine
   _currentHP: 110
   _maxHP: 110

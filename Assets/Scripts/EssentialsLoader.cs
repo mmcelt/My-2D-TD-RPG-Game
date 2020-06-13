@@ -6,7 +6,7 @@ public class EssentialsLoader : MonoBehaviour
 {
 	#region Fields
 
-	[SerializeField] GameObject _uiScreen, _player, _gameManager, _audioManager, _battleManager;
+	[SerializeField] GameObject _uiScreen, _player, _gameManager, _audioManager, _battleManager, _dungeonPlayer;
 
 	#endregion
 
@@ -33,6 +33,11 @@ public class EssentialsLoader : MonoBehaviour
 		if (BattleManager.Instance == null)
 		{
 			BattleManager.Instance = Instantiate(_battleManager).GetComponent<BattleManager>();
+		}
+		if (OldSchoolFPC.Instance == null)
+		{
+			OldSchoolFPC.Instance = Instantiate(_dungeonPlayer).GetComponent<OldSchoolFPC>();
+			OldSchoolFPC.Instance.gameObject.SetActive(false);
 		}
 	}
 	#endregion

@@ -111,9 +111,8 @@ MonoBehaviour:
   _stopCurse: 0
   _weaponStr: 0
   _armorStr: 0
-  _forAverage: 1
-  _forWarrior: 1
-  _forMage: 1
+  _forWarrior: 0
+  _forMage: 0
   _lightUIIndex: 1
   _intensity: 3
   _lifetime: 1200

@@ -44,7 +44,9 @@ public class AreaExit : MonoBehaviour
 			GameManager.Instance._fadingBetweenAreas = true;
 
 			if (_exiting2D)
-				PlayerController.Instance.gameObject.SetActive(false);
+			{
+				StartCoroutine(EnteringDungeonRoutine());
+			}
 
 			_shouldLoadAfterFade = true;
 			UIFade.Instance.FadeToBlack();
@@ -59,6 +61,11 @@ public class AreaExit : MonoBehaviour
 
 	#region Private Methods
 
-
+	IEnumerator EnteringDungeonRoutine()
+	{
+		yield return new WaitForSeconds(_waitToLoad - 0.1f);
+		PlayerController.Instance.gameObject.SetActive(false);
+		OldSchoolFPC.Instance.gameObject.SetActive(true);
+	}
 	#endregion
 }

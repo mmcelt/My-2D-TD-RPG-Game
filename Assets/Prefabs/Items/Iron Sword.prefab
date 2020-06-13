@@ -113,7 +113,6 @@ MonoBehaviour:
   _stopCurse: 0
   _weaponStr: 15
   _armorStr: 0
-  _forAverage: 1
   _forWarrior: 1
   _forMage: 0
   _lightUIIndex: 0

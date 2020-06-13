@@ -225,7 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayer: 0
-  _movesAvailable: []
+  _movesAvailable:
+  - Slash
   _charName: Rat
   _currentHP: 95
   _maxHP: 95

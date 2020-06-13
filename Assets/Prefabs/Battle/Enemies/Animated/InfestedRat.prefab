@@ -449,7 +449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayer: 0
-  _movesAvailable: []
+  _movesAvailable:
+  - Slash
+  - Fireball
   _charName: Infested Rat
   _currentHP: 120
   _maxHP: 120

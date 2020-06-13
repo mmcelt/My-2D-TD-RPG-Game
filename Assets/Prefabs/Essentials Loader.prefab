@@ -52,3 +52,5 @@ MonoBehaviour:
     type: 3}
   _battleManager: {fileID: 4638990441125947458, guid: f4aae4887bcace84c8919fa1427a5e79,
     type: 3}
+  _dungeonPlayer: {fileID: 6396057965511808050, guid: cbaa56f34a99297439c5b1f503829a89,
+    type: 3}

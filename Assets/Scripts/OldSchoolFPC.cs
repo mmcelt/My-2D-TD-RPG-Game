@@ -44,7 +44,7 @@ public class OldSchoolFPC : MonoBehaviour
 		else if (Instance != this)
 			Destroy(gameObject);
 
-		//DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(gameObject);
 	}
 
 	void Start()

@@ -131,7 +131,7 @@ public class ItemButtton : MonoBehaviour
 
 	bool CheckForValidUser()
 	{
-		bool validUser = false;
+		bool validUser = true;
 
 		//check if a player can use the item...
 		for (int i = 0; i < GameManager.Instance._playerStats.Length; i++)
