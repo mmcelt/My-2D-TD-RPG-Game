@@ -70,8 +70,8 @@ public class BattleStarter3D : MonoBehaviour
 
 	IEnumerator StartBattleRoutine()
 	{
-		UIFade.Instance.FadeToBlack();
 		GameManager.Instance._battleActive = true;
+		UIFade.Instance.FadeToBlack();
 
 		int selectedBattle = Random.Range(0, _potentialBattles.Length);
 		BattleManager.Instance._rewardItems = _potentialBattles[selectedBattle]._rewardItems;

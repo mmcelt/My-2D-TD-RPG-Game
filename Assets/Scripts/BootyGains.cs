@@ -65,7 +65,7 @@ public class BootyGains: MonoBehaviour
 		GameManager.Instance._currentGold += _goldFound;
 		_bootyPanel.SetActive(false);
 		GameManager.Instance._bootyPanelOpen = false;
-
+		GameManager.Instance._interactingWithObject = false;
 	}
 	#endregion
 

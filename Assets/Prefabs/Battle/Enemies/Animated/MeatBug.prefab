@@ -675,8 +675,8 @@ MonoBehaviour:
   _maxHP: 100
   _currentMP: 0
   _maxMP: 0
-  _STR: 0
-  _DEF: 0
+  _STR: 5
+  _DEF: 5
   _wpnPwr: 0
   _armPwr: 0
   _equippedWpn: 
